@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SM2Test</string>
+    <string name="tv_NombreApellido">Nombre y Apellido:</string>
+    <string name="et_NombreApellido">Ingresar nombre</string>
+    <string name="tv_contraseña">Contraseña:</string>
+    <string name="et_contraseña">Ingresar contraseña</string>
+    <string name="et_comentarios">Ingresar tu opinion</string>
+    <string name="Save">Guardar</string>
+    <string name="name">Name</string>
+    <string name="textview">TextView</string>
+    <string-array name="arrCursos">
+        <item>Curso De Android</item>
+        <item>Curso De Swift</item>
+        <item>Curso De IOS</item>
+    </string-array>
+</resources>

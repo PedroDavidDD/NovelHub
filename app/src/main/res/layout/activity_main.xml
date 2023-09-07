@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
+
+    <TextView
+        android:id="@+id/TxtView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#5d5"
+        android:text="@string/tv_NombreApellido"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.176" />
+
+    <EditText
+        android:id="@+id/etNombreAlumno"
+        android:layout_width="252dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="33dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/et_NombreApellido"
+        app:layout_constraintStart_toStartOf="@+id/TxtView0"
+        app:layout_constraintTop_toBottomOf="@+id/TxtView0"
+        tools:ignore="LabelFor,MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="432dp"
+        android:background="#5d5"
+        android:text="@string/tv_contraseña"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/TxtView0"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/etCodigoAlumno"
+        android:layout_width="252dp"
+        android:layout_height="71dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/et_contraseña"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="LabelFor,MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textCurso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#5d5"
+        android:text="Cursos:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/etCodigoAlumno" />
+
+    <Spinner
+        android:id="@+id/spCursos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries='@array/arrCursos'
+        android:minHeight="50dp"
+        app:layout_constraintStart_toStartOf="@+id/textCurso"
+        app:layout_constraintTop_toBottomOf="@+id/textCurso"
+        android:background="#d55"
+        />
+
+<RadioGroup
+    android:id="@+id/rgSexo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    app:layout_constraintStart_toStartOf="@+id/spCursos"
+    app:layout_constraintTop_toBottomOf="@+id/spCursos"
+    >
+    <RadioButton
+        android:id="@+id/rbSexoM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mujer"
+        android:background="#ff0" />
+    <RadioButton
+        android:id="@+id/rbSexoH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hombre"
+        android:background="#ff0"
+        />
+</RadioGroup>
+
+    <EditText
+        android:id="@+id/etComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:gravity="center"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:text="@string/et_comentarios"
+        app:layout_constraintStart_toStartOf="@+id/textCurso"
+        app:layout_constraintTop_toBottomOf="@+id/rgSexo" />
+        " />
+
+    <Button
+        android:id="@+id/btnMatricula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etComments"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
