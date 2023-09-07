@@ -10,7 +10,7 @@
     <EditText
         android:id="@+id/et_np"
         android:layout_width="225dp"
-        android:layout_height="222dp"
+        android:layout_height="122dp"
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
@@ -32,4 +32,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.navigation.NavigationView
+    app:menu="@menu/navigation_drawer"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
