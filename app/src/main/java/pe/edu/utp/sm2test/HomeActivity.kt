@@ -6,15 +6,10 @@ import androidx.appcompat.widget.Toolbar // Asegúrate de importar la clase Tool
 import androidx.appcompat.app.ActionBarDrawerToggle
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        /*
-            toolbar = findViewById(R.id.toolbar) as Toolbar
-            setSupportActionBar(toolbar)
-        */
         // Inicializa los datos
         this.initialComponents();
         // Rellenar datos
@@ -23,10 +18,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setData() {
-        TODO("Not yet implemented")
     }
 
     private fun initialComponents() {
-        TODO("Not yet implemented")
     }
 }

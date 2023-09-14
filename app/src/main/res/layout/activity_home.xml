@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/tbate"
         tools:srcCompat="@drawable/tbate"
 
-        />
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/tv_card_title"
