@@ -7,27 +7,29 @@ import android.widget.Button
 import androidx.appcompat.widget.Toolbar // Asegúrate de importar la clase Toolbar correcta
 import androidx.appcompat.app.ActionBarDrawerToggle
 
-class HomeActivity : AppCompatActivity() {
-    private lateinit var btnIr: Button
+class ToolbarActivity : AppCompatActivity() {
+    private lateinit var btnInicio: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_toolbar)
+        /*
         // Inicializa los datos
-        this.initialComponents();
+        this.initialComponents()
         // Rellenar datos
         this.setData()
         // Acciones
+        */
     }
 
     private fun setData() {
         // Configura un clic en el botón para abrir la SegundaActividad
-        btnIr.setOnClickListener {
-            val intent = Intent(this,TagsActivity::class.java )
+        btnInicio.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun initialComponents() {
-        btnIr = findViewById(R.id.btn_card_title_go)
+        btnInicio = findViewById(R.id.btn_inicio)
     }
 }
