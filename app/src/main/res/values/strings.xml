@@ -21,4 +21,5 @@
     <string name="btn_inicio">Inicioa</string>
     <string name="btn_explorar">Explorar</string>
     <string name="btn_misSeries">Mis Series</string>
+    <string name="btn_card_title_go">Ir</string>
 </resources>
