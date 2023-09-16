@@ -8,60 +8,19 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/activity_toolbar"/>
+        layout="@layout/activity_toolbar" />
 
-    <ImageView
-        android:id="@+id/iv_card_title"
-        android:layout_width="352dp"
-        android:layout_height="504dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_listBooks"
+        android:layout_width="406dp"
+        android:layout_height="617dp"
+        android:background="#ff0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.343"
-        app:srcCompat="@drawable/tbate"
-        tools:srcCompat="@drawable/tbate" />
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
 
-    <TextView
-        android:id="@+id/tv_card_title"
-        android:layout_width="289dp"
-        android:layout_height="53dp"
-        android:paddingVertical="10dp"
-        android:text="@string/tv_card_title"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/iv_card_title"
-        app:layout_constraintTop_toBottomOf="@+id/iv_card_title" />
+        />
 
-    <TextView
-        android:id="@+id/tv_card_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_card_day"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/iv_card_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_card_title" />
-
-    <TextView
-        android:id="@+id/tv_card_chapter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_card_chapter"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_card_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_card_title" />
-
-    <Button
-        android:id="@+id/btn_card_title_go"
-        android:layout_width="61dp"
-        android:layout_height="53dp"
-        android:text="@string/btn_card_title_go"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_card_title"
-        app:layout_constraintEnd_toEndOf="@+id/iv_card_title"
-        app:layout_constraintTop_toBottomOf="@+id/iv_card_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
