@@ -25,36 +25,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btn_buscar"
-        android:layout_width="56dp"
-        android:layout_height="48dp"
-        android:text="@string/btn_buscar"
-        app:layout_constraintEnd_toStartOf="@+id/et_buscador"
-        app:layout_constraintTop_toTopOf="@+id/et_buscador"
-        tools:ignore="DuplicateSpeakableTextCheck" />
-
-    <EditText
-        android:id="@+id/et_buscador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:ems="10"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:text="@string/et_buscador"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/v_header"
-        app:layout_constraintEnd_toEndOf="@+id/v_header"
-        app:layout_constraintStart_toStartOf="@+id/v_header"
-        app:layout_constraintTop_toTopOf="@+id/v_header" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="51dp"
         android:layout_height="47dp"
-        app:layout_constraintStart_toEndOf="@+id/et_buscador"
-        app:layout_constraintTop_toTopOf="@+id/et_buscador"
+        app:layout_constraintStart_toEndOf="@+id/sv_buscar"
+        tools:layout_editor_absoluteY="5dp"
         tools:srcCompat="@drawable/tbate" />
 
     <Button
@@ -83,5 +59,17 @@
         android:text="Inicio"
         app:layout_constraintEnd_toStartOf="@+id/btnExplorar"
         app:layout_constraintTop_toTopOf="@+id/btnExplorar" />
+
+    <SearchView
+        android:id="@+id/sv_buscar"
+        android:layout_width="242dp"
+        android:layout_height="43dp"
+        android:background="#FFFF00"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/et_buscador"
+        app:layout_constraintBottom_toBottomOf="@+id/v_header"
+        app:layout_constraintEnd_toEndOf="@+id/v_header"
+        app:layout_constraintStart_toStartOf="@+id/v_header"
+        app:layout_constraintTop_toTopOf="@+id/v_header" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

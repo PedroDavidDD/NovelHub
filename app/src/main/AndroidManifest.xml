@@ -9,8 +9,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SM2Test"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity
             android:name=".ToolbarActivity"
             android:exported="false" />
@@ -19,9 +19,6 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ResultadoActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
