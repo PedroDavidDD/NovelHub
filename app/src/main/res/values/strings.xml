@@ -22,4 +22,6 @@
     <string name="btn_explorar">Explorar</string>
     <string name="btn_misSeries">Mis Series</string>
     <string name="btn_card_title_go">Ir</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -15,50 +15,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/v_footer"
-        android:layout_width="411dp"
-        android:layout_height="57dp"
-        android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="51dp"
         android:layout_height="47dp"
         app:layout_constraintStart_toEndOf="@+id/sv_buscar"
         tools:layout_editor_absoluteY="5dp"
-        tools:srcCompat="@drawable/tbate" />
-
-    <Button
-        android:id="@+id/btnExplorar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_explorar"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintTop_toTopOf="@+id/v_footer"
-        app:layout_constraintBottom_toBottomOf="@+id/v_footer"
-        app:layout_constraintStart_toStartOf="@+id/v_footer"
-        app:layout_constraintEnd_toEndOf="@+id/v_footer" />
-
-    <Button
-        android:id="@+id/btnMisSeries"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_misSeries"
-        app:layout_constraintStart_toEndOf="@+id/btnExplorar"
-        app:layout_constraintTop_toTopOf="@+id/btnExplorar" />
-
-    <Button
-        android:id="@+id/btn_inicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Inicio"
-        app:layout_constraintEnd_toStartOf="@+id/btnExplorar"
-        app:layout_constraintTop_toTopOf="@+id/btnExplorar" />
+        tools:srcCompat="@drawable/tbate"
+        tools:ignore="MissingConstraints" />
 
     <SearchView
         android:id="@+id/sv_buscar"
@@ -70,6 +34,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/v_header"
         app:layout_constraintEnd_toEndOf="@+id/v_header"
         app:layout_constraintStart_toStartOf="@+id/v_header"
-        app:layout_constraintTop_toTopOf="@+id/v_header" />
+        app:layout_constraintTop_toTopOf="@+id/v_header"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
