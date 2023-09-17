@@ -11,15 +11,11 @@
         android:supportsRtl="true"
         tools:targetApi="31"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity
-            android:name=".ToolbarActivity"
-            android:exported="false" />
+
         <activity
             android:name=".TagsActivity"
             android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

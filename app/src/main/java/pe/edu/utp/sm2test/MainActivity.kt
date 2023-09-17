@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
@@ -14,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
+import pe.edu.utp.sm2test.BottomNavigation.TagsFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var toolbar: Toolbar
+    // Crear HomeFragment y pasar la lista de libros
+    private var homeFragment: HomeFragment = HomeFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,42 +35,44 @@ class MainActivity : AppCompatActivity() {
 
         // Inicializa los datos y componentes
         initialComponents()
-
-        // Configurar Toolbar
-        setSupportActionBar(toolbar)
-
-        // Cambiar el título del Toolbar
-        supportActionBar?.title = "NovelHub"
-
-        // Crear HomeFragment y pasar la lista de libros
-        val homeFragment = HomeFragment()
+        // Datos del Toolbar
+        getSettingsToolbar()
 
         // Reemplazar fragmento por defecto
         replaceFragment(homeFragment)
-
         // Obtener lista de libros
         obtenerListaDeBooks()
-
         // Establecer la lista de libros en el fragmento HomeFragment
         homeFragment.setBookList(listBook)
 
+        // Acciones con los botones
+        getBtnListeners()
+    }
+
+    private fun getBtnListeners() {
         // Configurar el listener para la navegación de la parte inferior
         binding.bottomNavigationView.setOnItemReselectedListener { item ->
+            // Realizar acciones para el botón
             when (item.itemId) {
                 R.id.btnInicio -> {
-                    // Realizar acciones para el botón Inicio
                     replaceFragment(homeFragment)
                 }
                 R.id.btnExplorar -> {
-                    // Realizar acciones para el botón Explorar
-                    replaceFragment(MyNovelsFragment())
+                    replaceFragment(NewsFragment())
                 }
                 R.id.btnMisSeries -> {
-                    // Realizar acciones para el botón Mis Series
-                    replaceFragment(NewsFragment())
+                    replaceFragment(MyNovelsFragment())
                 }
             }
         }
+
+    }
+
+    private fun getSettingsToolbar(){
+        // Configurar Toolbar
+        setSupportActionBar(toolbar)
+        // Cambiar el título del Toolbar
+        supportActionBar?.title = "NovelHub"
     }
 
     // Método para obtener la lista de libros (simulación)
@@ -86,12 +92,16 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Aquí puedes realizar la búsqueda y aplicar el filtro a tu RecyclerView
                 filterData(query)
+                println("Selecciono")
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 // Si deseas realizar la búsqueda en tiempo real, puedes aplicar el filtro aquí
-                filterData(newText)
+                //filterData(newText)
+                // Mientras escribes en el Buscador, aparecen los tags
+                replaceFragment(TagsFragment())
+                println("Escribo")
                 return true
             }
         })
@@ -100,8 +110,15 @@ class MainActivity : AppCompatActivity() {
 
     // Método para filtrar datos (a implementar)
     private fun filterData(query: String?) {
-        // Realiza el filtrado de datos aquí
-        // Puedes actualizar tu RecyclerView o adaptador según los resultados de búsqueda
+        // Filtra la lista de libros por título
+        val filteredList = listBook.filter { book ->
+            book.title!!.contains(query.orEmpty(), ignoreCase = true)
+        }
+        // Reemplazar fragmento por defecto
+        replaceFragment(homeFragment)
+        // Establecer la lista de libros en el fragmento HomeFragment
+        homeFragment.setBookList(ArrayList(filteredList))
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

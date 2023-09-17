@@ -8,7 +8,9 @@
         android:icon="@drawable/baseline_search_24"
         android:title="Search"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+    />
+
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/baseline_settings_24"

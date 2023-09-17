@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".TagsActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/activity_toolbar"/>
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -21,7 +17,6 @@
         app:layout_constraintVertical_bias="1.0"
         android:paddingTop="60dp"
         >
-
 
         <TextView
             android:id="@+id/textView2"
