@@ -1,4 +1,4 @@
-package pe.edu.utp.sm2test.Filter
+package pe.edu.utp.sm2test.ToolbarNav.Filter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

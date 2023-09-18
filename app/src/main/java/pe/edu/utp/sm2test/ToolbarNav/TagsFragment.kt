@@ -1,4 +1,4 @@
-package pe.edu.utp.sm2test.BottomNavigation
+package pe.edu.utp.sm2test.ToolbarNav
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

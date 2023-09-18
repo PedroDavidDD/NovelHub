@@ -1,11 +1,9 @@
 package pe.edu.utp.sm2test
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
@@ -15,8 +13,8 @@ import androidx.fragment.app.FragmentTransaction
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
-import pe.edu.utp.sm2test.BottomNavigation.TagsFragment
-import pe.edu.utp.sm2test.Filter.FilterFragment
+import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
+import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 
