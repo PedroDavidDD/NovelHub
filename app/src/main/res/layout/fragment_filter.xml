@@ -51,12 +51,12 @@
             android:id="@+id/rv_filter_listBooks"
             android:layout_width="347dp"
             android:layout_height="525dp"
-            android:background="@color/md_theme_light_primary"
             app:layout_constraintEnd_toEndOf="@+id/btn_filter_Ir"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="@+id/btn_filter_Ir"
             app:layout_constraintTop_toBottomOf="@+id/btn_filter_Ir"
             android:layout_marginTop="10dp"
+
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
