@@ -16,7 +16,7 @@ class HomeFragment : Fragment() {
     // Declaración de variables
     private var listBook: ArrayList<Books> = arrayListOf()
     private lateinit var listBooks: RecyclerView
-    private var listBookAdapter: ListBooksAdapter? = null
+    private  var listBookAdapter: ListBooksAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

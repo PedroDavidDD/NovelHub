@@ -10,7 +10,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Adapters.ListBooksAdapter
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
@@ -120,6 +119,7 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+
         return true
     }
 
@@ -131,10 +131,10 @@ class MainActivity : AppCompatActivity() {
             // No se hace nada si el query es nulo o muy corto
             return
         }
-
+        val queryText = query.toString().trim().lowercase()
         // Filtra la lista de libros por título
         val filteredList = listBook.filter { book ->
-            book.title!!.lowercase().contains(query.toString().lowercase(), ignoreCase = true)
+            book.title!!.lowercase().contains(queryText, ignoreCase = true)
         }
         //[Encontró algo?]
         replaceFragment(filterFragment)
@@ -146,6 +146,7 @@ class MainActivity : AppCompatActivity() {
             // Establecer la lista con libros filtrados
             filterFragment.setFilterBookList(ArrayList(filteredList))
         }
+        filterFragment.setFiltered(queryText)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

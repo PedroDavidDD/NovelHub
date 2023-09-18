@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.TagsActivity
 
-class ListFilterBooksAdapter(val context: Context, val list: ArrayList<Books>, val layout: Int) :
+class ListFilterBooksAdapter(val context: Context, var list: ArrayList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListFilterBooksAdapter.BookViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -41,5 +40,9 @@ class ListFilterBooksAdapter(val context: Context, val list: ArrayList<Books>, v
     inner class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val img: ImageView = view.findViewById(R.id.iv_filter_card_img)
         val btnIr: Button = view.findViewById(R.id.btn_filter_card_title)
+    }
+    fun updListFilterBooks(list: ArrayList<Books>){
+        this.list = list
+        notifyDataSetChanged()
     }
 }
