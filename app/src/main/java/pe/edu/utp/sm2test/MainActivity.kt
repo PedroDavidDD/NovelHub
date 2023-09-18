@@ -16,6 +16,7 @@ import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
 import pe.edu.utp.sm2test.BottomNavigation.TagsFragment
+import pe.edu.utp.sm2test.Filter.FilterFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     // Crear HomeFragment y pasar la lista de libros
     private var homeFragment: HomeFragment = HomeFragment()
+    private var filterFragment: FilterFragment = FilterFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,9 +108,9 @@ class MainActivity : AppCompatActivity() {
 
                 if (newText.isNullOrEmpty()) {
                     // El texto está vacío o nulo, puedes realizar alguna acción aquí
-                    replaceFragment(homeFragment)
+                    replaceFragment(filterFragment)
                     // El texto está vacío, restaura la lista original en el fragmento HomeFragment
-                    homeFragment.setBookList(listBook)
+                    filterFragment.setFilterBookList(listBook)
                 }
 
                 return true
@@ -131,18 +133,16 @@ class MainActivity : AppCompatActivity() {
             book.title!!.contains(query, ignoreCase = true)
         }
         //[Encontró algo?]
-        replaceFragment(homeFragment)
+        replaceFragment(filterFragment)
         if (filteredList.isEmpty()) {
             // Si filteredList está vacío, restaura la lista original
-            homeFragment.setBookList(listBook)
+            filterFragment.setFilterBookList(listBook)
         } else {
             // Si filteredList no está vacío, establece la lista filtrada
             // Establecer la lista con libros filtrados
-            homeFragment.setBookList(ArrayList(filteredList))
+            filterFragment.setFilterBookList(ArrayList(filteredList))
         }
     }
-
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {

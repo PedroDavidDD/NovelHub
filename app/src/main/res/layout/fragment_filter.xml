@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Filter.FilterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SearchView
+            android:id="@+id/sv_filter_buscar"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.204"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.038" />
+
+        <Button
+            android:id="@+id/btn_filter_Type"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/md_theme_light_primary"
+            android:text="Titulo"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/sv_filter_buscar"
+            app:layout_constraintTop_toTopOf="@+id/sv_filter_buscar"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btn_filter_Ir"
+            android:layout_width="350dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/md_theme_light_primary"
+            android:text="Ir..."
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/btn_filter_Type"
+            app:layout_constraintStart_toStartOf="@+id/sv_filter_buscar"
+            app:layout_constraintTop_toBottomOf="@+id/btn_filter_Type"
+            tools:ignore="TextContrastCheck" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_filter_listBooks"
+            android:layout_width="347dp"
+            android:layout_height="525dp"
+            android:background="@color/md_theme_light_primary"
+            app:layout_constraintEnd_toEndOf="@+id/btn_filter_Ir"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/btn_filter_Ir"
+            app:layout_constraintTop_toBottomOf="@+id/btn_filter_Ir"
+            android:layout_marginTop="10dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
