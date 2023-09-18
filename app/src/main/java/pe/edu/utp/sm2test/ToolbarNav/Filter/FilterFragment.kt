@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Adapters.ListFilterBooksAdapter
@@ -30,8 +31,8 @@ class FilterFragment : Fragment() {
 
         // Inicializar el adaptador y configurar el RecyclerView
         listFilterBookAdapter = ListFilterBooksAdapter(requireContext(), listFilterBook, R.layout.list_filter_item_books)
+        listFilterBooks.layoutManager = GridLayoutManager(requireContext(),2)
         listFilterBooks.adapter = listFilterBookAdapter
-        listFilterBooks.layoutManager = LinearLayoutManager(requireContext())
 
         return rootView
     }

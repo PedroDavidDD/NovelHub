@@ -10,6 +10,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import pe.edu.utp.sm2test.Adapters.ListBooksAdapter
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
@@ -80,6 +83,9 @@ class MainActivity : AppCompatActivity() {
         // Ejemplo de cómo agregar elementos a la lista
         listBook.add(Books("Título 1", "Día 1", "Capítulo 1", R.drawable.icono_etiqueta))
         listBook.add(Books("Título 2", "Día 2", "Capítulo 2", R.drawable.tbate))
+        listBook.add(Books("Título 3", "Día 3", "Capítulo 1000", R.drawable.icono_etiqueta))
+        listBook.add(Books("Título 4", "Día 4", "Capítulo 110", R.drawable.tbate))
+        listBook.add(Books("Título 5", "Día 5", "Capítulo 20", R.drawable.tbate))
 
     }
 
@@ -128,7 +134,7 @@ class MainActivity : AppCompatActivity() {
 
         // Filtra la lista de libros por título
         val filteredList = listBook.filter { book ->
-            book.title!!.contains(query, ignoreCase = true)
+            book.title!!.lowercase().contains(query.toString().lowercase(), ignoreCase = true)
         }
         //[Encontró algo?]
         replaceFragment(filterFragment)

@@ -30,8 +30,8 @@ class HomeFragment : Fragment() {
 
         // Inicializar el adaptador y configurar el RecyclerView
         listBookAdapter = ListBooksAdapter(requireContext(), listBook, R.layout.activity_list_item_books)
-        listBooks.adapter = listBookAdapter
         listBooks.layoutManager = LinearLayoutManager(requireContext())
+        listBooks.adapter = listBookAdapter
 
         return rootView
     }
