@@ -50,4 +50,7 @@ class HomeFragment : Fragment() {
         // Verificar si el adaptador no es nulo y notificar cambios en los datos
         listBookAdapter?.notifyDataSetChanged()
     }
+    fun setBookListAll() {
+        listBookAdapter?.notifyDataSetChanged()
+    }
 }

@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         // Ejemplo de cómo agregar elementos a la lista
         listBook.add(Books("Título 1", "Día 1", "Capítulo 1", R.drawable.icono_etiqueta))
         listBook.add(Books("Título 2", "Día 2", "Capítulo 2", R.drawable.tbate))
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -102,6 +103,14 @@ class MainActivity : AppCompatActivity() {
                 // Mientras escribes en el Buscador, aparecen los tags
                 replaceFragment(TagsFragment())
                 println("Escribo")
+
+                if (newText.isNullOrEmpty()) {
+                    // El texto está vacío o nulo, puedes realizar alguna acción aquí
+                    replaceFragment(homeFragment)
+                    // El texto está vacío, restaura la lista original en el fragmento HomeFragment
+                    homeFragment.setBookList(listBook)
+                }
+
                 return true
             }
         })
@@ -110,16 +119,30 @@ class MainActivity : AppCompatActivity() {
 
     // Método para filtrar datos (a implementar)
     private fun filterData(query: String?) {
+
+        // Verificar si el query es nulo o muy corto
+        if (query.isNullOrEmpty() || query.length < 3) {
+            // No se hace nada si el query es nulo o muy corto
+            return
+        }
+
         // Filtra la lista de libros por título
         val filteredList = listBook.filter { book ->
-            book.title!!.contains(query.orEmpty(), ignoreCase = true)
+            book.title!!.contains(query, ignoreCase = true)
         }
-        // Reemplazar fragmento por defecto
+        //[Encontró algo?]
         replaceFragment(homeFragment)
-        // Establecer la lista de libros en el fragmento HomeFragment
-        homeFragment.setBookList(ArrayList(filteredList))
-
+        if (filteredList.isEmpty()) {
+            // Si filteredList está vacío, restaura la lista original
+            homeFragment.setBookList(listBook)
+        } else {
+            // Si filteredList no está vacío, establece la lista filtrada
+            // Establecer la lista con libros filtrados
+            homeFragment.setBookList(ArrayList(filteredList))
+        }
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
