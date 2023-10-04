@@ -12,7 +12,7 @@ import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.TagsActivity
 
-class ListFilterBooksAdapter(val context: Context, var list: ArrayList<Books>, val layout: Int) :
+class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListFilterBooksAdapter.BookViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -41,8 +41,8 @@ class ListFilterBooksAdapter(val context: Context, var list: ArrayList<Books>, v
         val img: ImageView = view.findViewById(R.id.iv_filter_card_img)
         val btnIr: Button = view.findViewById(R.id.btn_filter_card_title)
     }
-    fun updListFilterBooks(list: ArrayList<Books>){
-        this.list = list
+    fun updListFilterBooks(newList: MutableList<Books>) {
+        this.list = newList
         notifyDataSetChanged()
     }
 }

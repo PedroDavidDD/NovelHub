@@ -2,6 +2,7 @@ package pe.edu.utp.sm2test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
@@ -10,19 +11,16 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.recyclerview.widget.RecyclerView
-import pe.edu.utp.sm2test.Adapters.ListBooksAdapter
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
 import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Models.Books
+import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    private var listBook: ArrayList<Books> = arrayListOf()
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var toolbar: Toolbar
@@ -34,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        //Log.d("libro", BookProvider.booksList.toString())
         // Inicializa los datos y componentes
         initialComponents()
         // Datos del Toolbar
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         // Obtener lista de libros
         obtenerListaDeBooks()
         // Establecer la lista de libros en el fragmento HomeFragment
-        homeFragment.setBookList(listBook)
+        homeFragment.setBookList(BookProvider.booksList)
 
         // Acciones con los botones
         getBtnListeners()
@@ -80,11 +78,7 @@ class MainActivity : AppCompatActivity() {
     // Método para obtener la lista de libros (simulación)
     private fun obtenerListaDeBooks() {
         // Ejemplo de cómo agregar elementos a la lista
-        listBook.add(Books("Título 1", "Día 1", "Capítulo 1", R.drawable.icono_etiqueta))
-        listBook.add(Books("Título 2", "Día 2", "Capítulo 2", R.drawable.tbate))
-        listBook.add(Books("Título 3", "Día 3", "Capítulo 1000", R.drawable.icono_etiqueta))
-        listBook.add(Books("Título 4", "Día 4", "Capítulo 110", R.drawable.tbate))
-        listBook.add(Books("Título 5", "Día 5", "Capítulo 20", R.drawable.tbate))
+       // BookProvider.booksList.add(Books("Título 6", "Día 1", "Capítulo 1", R.drawable.icono_etiqueta))
 
     }
 
@@ -113,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                     // El texto está vacío o nulo, puedes realizar alguna acción aquí
                     replaceFragment(filterFragment)
                     // El texto está vacío, restaura la lista original en el fragmento HomeFragment
-                    filterFragment.setFilterBookList(listBook)
+                    filterFragment.setFilterBookList(BookProvider.booksList)
                 }
 
                 return true
@@ -133,18 +127,19 @@ class MainActivity : AppCompatActivity() {
         }
         val queryText = query.toString().trim().lowercase()
         // Filtra la lista de libros por título
-        val filteredList = listBook.filter { book ->
+        val filteredList = BookProvider.booksList.filter { book ->
             book.title!!.lowercase().contains(queryText, ignoreCase = true)
         }
         //[Encontró algo?]
         replaceFragment(filterFragment)
         if (filteredList.isEmpty()) {
             // Si filteredList está vacío, restaura la lista original
-            filterFragment.setFilterBookList(listBook)
+            filterFragment.setFilterBookList( BookProvider.booksList )
+            //Toast.makeText(this,"NO HA ENCONTRADO COINCIDENCIAS",Toast.LENGTH_SHORT).show()
         } else {
             // Si filteredList no está vacío, establece la lista filtrada
             // Establecer la lista con libros filtrados
-            filterFragment.setFilterBookList(ArrayList(filteredList))
+            filterFragment.setFilterBookList(filteredList.toMutableList())
         }
         filterFragment.setFiltered(queryText)
     }
@@ -156,7 +151,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_settings -> {
-                Toast.makeText(this, "action_settings ${listBook.size}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "action_settings ${ BookProvider.booksList.size }", Toast.LENGTH_SHORT).show()
                 true
             }
             R.id.action_account -> {

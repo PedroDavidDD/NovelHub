@@ -3,7 +3,7 @@ package pe.edu.utp.sm2test.Models
 import android.os.Parcel
 import android.os.Parcelable
 
-class Books (val title: String?, val chapter: String?,
+data class Books (val title: String?, val chapter: String?,
              val day: String?, val img: Int?) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
