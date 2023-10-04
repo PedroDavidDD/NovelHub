@@ -39,6 +39,7 @@ class FilterFragment : Fragment() {
         listFilterBooks.layoutManager = GridLayoutManager(requireContext(),2)
         listFilterBooks.adapter = listFilterBookAdapter
 
+        // Iniciarlizar el Filtro
         setFiltered()
 
         return rootView
@@ -51,15 +52,9 @@ class FilterFragment : Fragment() {
     }
 
     fun setFilterBookList(bookList: MutableList<Books>) {
-        // Crear una copia de la lista original
-        val copyOfOriginalList = ArrayList(BookProvider.booksList)
 
-        // Limpiar la lista actual y agregar nuevos elementos
-        copyOfOriginalList.clear()
-        copyOfOriginalList.addAll(bookList)
-
-        // Verificar si el adaptador no es nulo y notificar cambios en los datos
-        listFilterBookAdapter?.notifyDataSetChanged()
+        // Actualizar el adaptador con la lista filtrada
+        listFilterBookAdapter?.updListFilterBooks(bookList.toMutableList())
     }
 
     fun setFiltered(data: String? = null) {
@@ -67,10 +62,8 @@ class FilterFragment : Fragment() {
         searchFilterBooks?.addTextChangedListener { query ->
             queryText = (data ?: query.toString()).trim().lowercase()
 
-            // Crear una copia de la lista original
-            val copyOfOriginalList = ArrayList(BookProvider.booksList)
-            // Filtrar la copia de la lista
-            val booksFiltered = copyOfOriginalList.filter { book -> book.title!!.lowercase().contains(queryText, ignoreCase = true) }
+            // Filtrar la lista
+            val booksFiltered = BookProvider.booksList.filter { book -> book.title!!.lowercase().contains(queryText, ignoreCase = true) }
 
             // Actualizar el adaptador con la lista filtrada
             listFilterBookAdapter!!.updListFilterBooks(booksFiltered.toMutableList())

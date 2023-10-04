@@ -141,7 +141,6 @@ class MainActivity : AppCompatActivity() {
             // Establecer la lista con libros filtrados
             filterFragment.setFilterBookList(filteredList.toMutableList())
         }
-        filterFragment.setFiltered(queryText)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
