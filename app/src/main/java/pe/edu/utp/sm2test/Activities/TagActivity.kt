@@ -4,9 +4,8 @@ package pe.edu.utp.sm2test.Activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_tag.rvEtiqueta
-import pe.edu.utp.sm2test.Adapters.TagAdapter
+//import kotlinx.android.synthetic.main.activity_tag.rvEtiqueta
+import pe.edu.utp.sm2test.Adapters.TagsAdapter
 import pe.edu.utp.sm2test.Classes.Tag
 import pe.edu.utp.sm2test.R
 
@@ -16,8 +15,8 @@ class TagActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tag)
 
-        rvEtiqueta.layoutManager = GridLayoutManager(this, 2)
-        rvEtiqueta.adapter= TagAdapter(generarDatos(), this)
+//        rvEtiqueta.layoutManager = GridLayoutManager(this, 2)
+//        rvEtiqueta.adapter= TagsAdapter(generarDatos(), this)
     }
 
     private fun generarDatos(): ArrayList<Tag> {

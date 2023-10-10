@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
     // Método para obtener la lista de libros (simulación)
     private fun obtenerListaDeBooks() {
         // Ejemplo de cómo agregar elementos a la lista
-       // BookProvider.booksList.add(Books("Título 6", "Día 1", "Capítulo 1", R.drawable.icono_etiqueta))
+        // BookProvider.booksList.add(Books("Título 6", "Día 1", "Capítulo 1", R.drawable.icono_etiqueta))
 
     }
 

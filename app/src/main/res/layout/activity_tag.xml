@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".Activities.TagActivity">
 
-    <LinearLayout
+
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="20dp"
+        android:text="Etiquetas"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Etiquetas"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTags"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvEtiqueta"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    </androidx.recyclerview.widget.RecyclerView>
 
-        </androidx.recyclerview.widget.RecyclerView>
 
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>

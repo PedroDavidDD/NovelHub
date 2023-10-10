@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_tag.rvTags
+import pe.edu.utp.sm2test.Adapters.TagsAdapter
+import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -22,6 +27,9 @@ class TagsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var adapterTags: TagsAdapter
+    private lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,7 +43,31 @@ class TagsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tags, container, false)
+        return inflater.inflate(R.layout.activity_tag, container, false)
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+        super.onViewCreated(view, savedInstanceState)
+
+        val layoutManager= LinearLayoutManager(context)
+        recyclerView= view.findViewById(R.id.rvTags)
+        recyclerView.layoutManager= layoutManager
+        recyclerView.setHasFixedSize(true)
+        adapterTags= TagsAdapter(getTagsList())
+        recyclerView.adapter= adapterTags
+
+    }
+
+    fun getTagsList(): ArrayList<Tags>{
+        var tagsList: ArrayList<Tags> = ArrayList()
+
+        tagsList.add( Tags("Fantasia", R.drawable.fantasia,"Nombre Libroo",R.drawable.tbate,"Nombre del Autor",3.5,"Descripcion del libro"))
+        tagsList.add( Tags("Fantasia2", R.drawable.fantasia,"Nombre Libroo2",R.drawable.tbate,"Nombre del Autor2",3.5,"Descripcion del libro"))
+        tagsList.add( Tags("Fantasia3", R.drawable.fantasia,"Nombre Libroo3",R.drawable.tbate,"Nombre del Autor3",3.5,"Descripcion del libro"))
+
+        return tagsList
     }
 
     companion object {
