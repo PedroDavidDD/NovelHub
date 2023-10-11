@@ -15,6 +15,9 @@
             android:name=".Activities.TagActivity"
             android:exported="false" />
         <activity
+            android:name=".BooksActivity"
+            android:exported="false" />
+        <activity
             android:name=".TagsActivity"
             android:exported="false" />
         <activity

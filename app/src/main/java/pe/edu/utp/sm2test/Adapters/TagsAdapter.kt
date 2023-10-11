@@ -5,10 +5,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationBarItemView
+import pe.edu.utp.sm2test.BooksActivity
 import pe.edu.utp.sm2test.Classes.Tag
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
@@ -33,18 +35,14 @@ class TagsAdapter(private val tagsList: ArrayList<Tags>) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val tag= tagsList[position]
         holder.nameTag.text= tag.nameTag
-        holder.imageTag.setImageResource(tag.imageTag)
+        holder.imageTag.setImageResource(tag.imageTag!!)
 
-//        holder.itemView.setOnClickListener{
-//            fun onClick(view: View){
-//                val intent = Intent(holder.itemView.context, TagsActivity::class.java)
-//                holder.itemView.context.startActivity(intent)
-//            }
-//
-//        }
+        holder.btnBook.setOnClickListener{
 
+                val intent = Intent(holder.itemView.context, BooksActivity::class.java)
+                holder.itemView.context.startActivity(intent)
 
-
+        }
 
     }
 
@@ -55,6 +53,7 @@ class TagsAdapter(private val tagsList: ArrayList<Tags>) : RecyclerView.Adapter<
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var nameTag: TextView= itemView.findViewById(R.id.tvEtiqueta)
         var imageTag: ImageView= itemView.findViewById(R.id.ivEtiqueta)
+        var btnBook: Button= itemView.findViewById(R.id.btnBooks)
 
     }
 

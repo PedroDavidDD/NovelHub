@@ -63,9 +63,8 @@ class TagsFragment : Fragment() {
     fun getTagsList(): ArrayList<Tags>{
         var tagsList: ArrayList<Tags> = ArrayList()
 
-        tagsList.add( Tags("Fantasia", R.drawable.fantasia,"Nombre Libroo",R.drawable.tbate,"Nombre del Autor",3.5,"Descripcion del libro"))
-        tagsList.add( Tags("Fantasia2", R.drawable.fantasia,"Nombre Libroo2",R.drawable.tbate,"Nombre del Autor2",3.5,"Descripcion del libro"))
-        tagsList.add( Tags("Fantasia3", R.drawable.fantasia,"Nombre Libroo3",R.drawable.tbate,"Nombre del Autor3",3.5,"Descripcion del libro"))
+        tagsList.add( Tags(3, "Fantasia", R.drawable.fantasia))
+
 
         return tagsList
     }
