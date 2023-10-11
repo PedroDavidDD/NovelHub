@@ -57,13 +57,24 @@ class FilterFragment : Fragment() {
         listFilterBookAdapter?.updListFilterBooks(bookList.toMutableList())
     }
 
-    fun setFiltered(data: String? = null) {
+    fun setFiltered(data: String? = null, typeFilterMain: String? = null) {
         var queryText: String = ""
+        val typeFilterMain = "title"
+
         searchFilterBooks?.addTextChangedListener { query ->
             queryText = (data ?: query.toString()).trim().lowercase()
 
             // Filtrar la lista
-            val booksFiltered = BookProvider.booksList.filter { book -> book.title!!.lowercase().contains(queryText, ignoreCase = true) }
+            var booksFiltered: List<Books> = BookProvider.booksList
+
+            when (typeFilterMain){
+                "title" -> {
+                    booksFiltered = BookProvider.booksList.filter { book -> book.title!!.lowercase().contains(queryText, ignoreCase = true) }
+                }
+                "tag" -> {
+                    booksFiltered = BookProvider.booksList.filter { book -> book.tagName!!.lowercase().contains(queryText, ignoreCase = true) }
+                }
+            }
 
             // Actualizar el adaptador con la lista filtrada
             listFilterBookAdapter!!.updListFilterBooks(booksFiltered.toMutableList())

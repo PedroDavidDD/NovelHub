@@ -9,11 +9,11 @@ class BookProvider {
     companion object {
         val booksList = mutableListOf<Books>(
             Books(
-                "Título 1",
+                "The beginning after the end 1",
                 "Día 5",
                 "Capítulo 20",
                 R.drawable.tbate,
-                1,
+                "Fantasia",
                 "Nombredel libro",
                 R.drawable.tbate,
                 "Nombre del autor",
