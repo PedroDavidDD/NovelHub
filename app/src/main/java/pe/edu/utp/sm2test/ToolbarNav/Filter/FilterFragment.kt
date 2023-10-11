@@ -35,12 +35,16 @@ class FilterFragment : Fragment() {
         initialComponents(rootView)
 
         // Inicializar el adaptador y configurar el RecyclerView
-        listFilterBookAdapter = ListFilterBooksAdapter(requireContext(), BookProvider.booksList, R.layout.list_filter_item_books)
-        listFilterBooks.layoutManager = GridLayoutManager(requireContext(),2)
+        listFilterBookAdapter = ListFilterBooksAdapter(
+            requireContext(),
+            BookProvider.booksList,
+            R.layout.list_filter_item_books
+        )
+        listFilterBooks.layoutManager = GridLayoutManager(requireContext(), 2)
         listFilterBooks.adapter = listFilterBookAdapter
 
         // Iniciarlizar el Filtro
-        setFiltered()
+        setFiltered("","")
 
         return rootView
     }
@@ -57,14 +61,29 @@ class FilterFragment : Fragment() {
         listFilterBookAdapter?.updListFilterBooks(bookList.toMutableList())
     }
 
-    fun setFiltered(data: String? = null) {
+    fun setFiltered(data: String? = null, typeFilterMain: String?) {
         var queryText: String = ""
+
         searchFilterBooks?.addTextChangedListener { query ->
             queryText = (data ?: query.toString()).trim().lowercase()
 
             // Filtrar la lista
-            val booksFiltered = BookProvider.booksList.filter { book -> book.title!!.lowercase().contains(queryText, ignoreCase = true) }
+            var booksFiltered: List<Books> = BookProvider.booksList
 
+            when (typeFilterMain) {
+                "title" -> {
+                    booksFiltered = BookProvider.booksList.filter { book ->
+                        book.title!!.lowercase().contains(queryText, ignoreCase = true)
+                    }
+                }
+
+                "tag" -> {
+                    booksFiltered = BookProvider.booksList.filter { book ->
+                        book.tagName!!.lowercase().contains(queryText, ignoreCase = true)
+                    }
+                }
+
+            }
             // Actualizar el adaptador con la lista filtrada
             listFilterBookAdapter!!.updListFilterBooks(booksFiltered.toMutableList())
 

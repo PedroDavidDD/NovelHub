@@ -11,13 +11,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationBarItemView
 import pe.edu.utp.sm2test.BooksActivity
-import pe.edu.utp.sm2test.Classes.Tag
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.TagsActivity
 import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 
-class TagsAdapter(private val tagsList: ArrayList<Tags>) : RecyclerView.Adapter<TagsAdapter.ViewHolder>(){
+class TagsAdapter(private val tagsList: ArrayList<Tags>) : RecyclerView.Adapter<TagsAdapter.ViewHolderTags>(){
 
 
     lateinit var context: Context
@@ -25,14 +24,14 @@ class TagsAdapter(private val tagsList: ArrayList<Tags>) : RecyclerView.Adapter<
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderTags {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_tag, parent, false)
-        return ViewHolder(itemView)
+        return ViewHolderTags(itemView)
     }
 
 
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderTags, position: Int) {
         val tag= tagsList[position]
         holder.nameTag.text= tag.nameTag
         holder.imageTag.setImageResource(tag.imageTag!!)
@@ -50,7 +49,7 @@ class TagsAdapter(private val tagsList: ArrayList<Tags>) : RecyclerView.Adapter<
         return tagsList.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolderTags(itemView: View) : RecyclerView.ViewHolder(itemView){
         var nameTag: TextView= itemView.findViewById(R.id.tvEtiqueta)
         var imageTag: ImageView= itemView.findViewById(R.id.ivEtiqueta)
         var btnBook: Button= itemView.findViewById(R.id.btnBooks)

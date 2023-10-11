@@ -64,6 +64,8 @@ class TagsFragment : Fragment() {
         var tagsList: ArrayList<Tags> = ArrayList()
 
         tagsList.add( Tags(3, "Fantasia", R.drawable.fantasia))
+        tagsList.add( Tags(3, "Terror", R.drawable.fantasia))
+        tagsList.add( Tags(3, "Ciencia ficcion", R.drawable.fantasia))
 
 
         return tagsList

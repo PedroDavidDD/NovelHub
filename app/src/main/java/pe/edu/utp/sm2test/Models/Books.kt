@@ -5,7 +5,7 @@ import android.os.Parcelable
 import java.util.Date
 
 data class Books (val title: String?, val chapter: String?,
-             val day: String?, val img: Int?, val tagID: Int?, val nameBook: String?, val coverBook: Int?, val authorBook: String?, val qualification: Double, val synopsis: String?, val fechaEstreno: Date?) : Parcelable {
+             val day: String?, val img: Int?, val tagName: String?, val nameBook: String?, val coverBook: Int?, val authorBook: String?, val qualification: Double, val synopsis: String?, val fechaEstreno: Date?) : Parcelable {
 
 
 
@@ -14,7 +14,7 @@ data class Books (val title: String?, val chapter: String?,
         parcel.readString(),
         parcel.readString(),
         parcel.readValue(Int::class.java.classLoader) as? Int,
-        parcel.readValue(Int::class.java.classLoader) as? Int,
+        parcel.readString(),
         parcel.readString(),
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
@@ -29,7 +29,7 @@ data class Books (val title: String?, val chapter: String?,
         parcel.writeString(chapter)
         parcel.writeString(day)
         parcel.writeValue(img)
-        parcel.writeValue(tagID)
+        parcel.writeValue(tagName)
         parcel.writeString(nameBook)
         parcel.writeValue(coverBook)
         parcel.writeString(authorBook)
