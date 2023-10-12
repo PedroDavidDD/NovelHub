@@ -53,9 +53,9 @@ class BookProvider {
             )
 
         private fun parseDate(dateStr: String): Date? {
-            val format = SimpleDateFormat("dd/MM/yy") // Define el formato de la cadena
+            val inputFormat  = SimpleDateFormat("dd/MM/yy") // Define el formato de la cadena
             return try {
-                format.parse(dateStr)
+                inputFormat.parse(dateStr)
             } catch (e: Exception) {
                 e.printStackTrace()
                 null
