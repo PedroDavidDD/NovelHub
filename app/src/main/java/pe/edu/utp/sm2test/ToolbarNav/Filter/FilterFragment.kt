@@ -44,7 +44,7 @@ class FilterFragment : Fragment() {
         listFilterBooks.adapter = listFilterBookAdapter
 
         // Iniciarlizar el Filtro
-        setFiltered("","")
+        setFiltered()
 
         return rootView
     }
@@ -60,15 +60,18 @@ class FilterFragment : Fragment() {
         // Actualizar el adaptador con la lista filtrada
         listFilterBookAdapter?.updListFilterBooks(bookList.toMutableList())
     }
-
-    fun setFiltered(data: String? = null, typeFilterMain: String? = "title") {
+    // SubFiltro
+    private fun setFiltered(data: String? = null, typeFilterMain: String? = "title") {
         var queryText: String = ""
 
         searchFilterBooks?.addTextChangedListener { query ->
+
             queryText = (data ?: query.toString()).trim().lowercase()
 
             // Filtrar la lista
-            var booksFiltered: List<Books> = BookProvider.booksList
+            var booksFiltered: List<Books> = BookProvider.booksList.filter { book ->
+                book.title!!.lowercase().contains(queryText, ignoreCase = true)
+            }
 
             when (typeFilterMain) {
                 "title" -> {
@@ -76,20 +79,16 @@ class FilterFragment : Fragment() {
                         book.title!!.lowercase().contains(queryText, ignoreCase = true)
                     }
                 }
-
                 "tag" -> {
                     booksFiltered = BookProvider.booksList.filter { book ->
                         book.tagName!!.lowercase().contains(queryText, ignoreCase = true)
                     }
                 }
-
             }
             // Actualizar el adaptador con la lista filtrada
             listFilterBookAdapter!!.updListFilterBooks(booksFiltered.toMutableList())
-
         }
         searchFilterBooks?.setText(queryText)
     }
-
 
 }

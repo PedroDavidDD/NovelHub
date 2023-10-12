@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity() {
 
         // Reemplazar fragmento por defecto
         replaceFragment(homeFragment)
-        // Obtener lista de libros
-        obtenerListaDeBooks()
         // Establecer la lista de libros en el fragmento HomeFragment
         homeFragment.setBookList(BookProvider.booksList)
 
@@ -75,13 +73,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = "NovelHub"
     }
 
-    // Método para obtener la lista de libros (simulación)
-    private fun obtenerListaDeBooks() {
-        // Ejemplo de cómo agregar elementos a la lista
-        // BookProvider.booksList.add(Books("Título 6", "Día 1", "Capítulo 1", R.drawable.icono_etiqueta))
-
-    }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_nav_menu, menu)
         val searchItem = menu?.findItem(R.id.action_search)
@@ -92,7 +83,7 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Aquí puedes realizar la búsqueda y aplicar el filtro a tu RecyclerView
                 filterData(query)
-                println("Selecciono")
+                println("Selecciono: $query")
                 return true
             }
 
@@ -119,10 +110,10 @@ class MainActivity : AppCompatActivity() {
 
     // Método para filtrar datos (a implementar)
     private fun filterData(query: String?) {
-
         // Verificar si el query es nulo o muy corto
         if (query.isNullOrEmpty() || query.length < 3) {
             // No se hace nada si el query es nulo o muy corto
+            Toast.makeText(this,"Mínimo 3 caracteres",Toast.LENGTH_SHORT).show()
             return
         }
         val queryText = query.toString().trim().lowercase()
@@ -135,11 +126,11 @@ class MainActivity : AppCompatActivity() {
         if (filteredList.isEmpty()) {
             // Si filteredList está vacío, restaura la lista original
             filterFragment.setFilterBookList( BookProvider.booksList )
-            //Toast.makeText(this,"NO HA ENCONTRADO COINCIDENCIAS",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"NO HA ENCONTRADO COINCIDENCIAS",Toast.LENGTH_SHORT).show()
         } else {
             // Si filteredList no está vacío, establece la lista filtrada
-            // Establecer la lista con libros filtrados
             filterFragment.setFilterBookList(filteredList.toMutableList())
+            Toast.makeText(this, "ELEMENTOS ENCONTRADOS", Toast.LENGTH_SHORT).show()
         }
     }
 

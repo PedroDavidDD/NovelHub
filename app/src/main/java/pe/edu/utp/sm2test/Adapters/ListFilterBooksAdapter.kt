@@ -30,7 +30,7 @@ class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>,
         val book = list[position]
         // Aquí debes cargar la imagen desde la ruta o recurso correspondiente
         holder.img.setImageResource(book.img!!)
-
+        holder.btnIr.text = book.title
         // Configurar el clic del botón para ver mas detalles
         holder.btnIr.setOnClickListener {
             val intent = Intent(holder.itemView.context, TagsActivity::class.java)

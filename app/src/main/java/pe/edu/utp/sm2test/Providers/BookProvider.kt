@@ -22,20 +22,20 @@ class BookProvider {
                 parseDate("10/09/23")
             ),
             Books(
-                "Título 1",
+                "Título 2",
                 "Día 5",
                 "Capítulo 20",
-                R.drawable.tbate,
+                R.drawable.icono_etiqueta,
                 "Ciencia Ficcion",
                 "Nombre del libro2",
-                R.drawable.tbate,
+                R.drawable.icono_etiqueta,
                 "Autor del autor",
                 3.5,
                 "Synopsis del libro",
                 parseDate("10/09/23")
             ),
             Books(
-                "Título 1",
+                "Título 3",
                 "Día 5",
                 "Capítulo 20",
                 R.drawable.tbate,
