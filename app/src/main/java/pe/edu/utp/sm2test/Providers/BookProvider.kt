@@ -14,13 +14,40 @@ class BookProvider {
                 "Capítulo 20",
                 R.drawable.tbate,
                 "Fantasia",
-                "Nombredel libro",
+                "Nombre del libro1",
                 R.drawable.tbate,
-                "Nombre del autor",
+                "Autor del autor",
+                3.5,
+                "Synopsis del libro",
+                parseDate("10/09/23")
+            ),
+            Books(
+                "Título 1",
+                "Día 5",
+                "Capítulo 20",
+                R.drawable.tbate,
+                "Ciencia Ficcion",
+                "Nombre del libro2",
+                R.drawable.tbate,
+                "Autor del autor",
+                3.5,
+                "Synopsis del libro",
+                parseDate("10/09/23")
+            ),
+            Books(
+                "Título 1",
+                "Día 5",
+                "Capítulo 20",
+                R.drawable.tbate,
+                "Terror",
+                "Nombre del libro3",
+                R.drawable.tbate,
+                "Autor del autor",
                 3.5,
                 "Synopsis del libro",
                 parseDate("10/09/23")
             )
+
 
 
             )

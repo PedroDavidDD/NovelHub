@@ -7,6 +7,8 @@ import java.util.Date
 data class Books (val title: String?, val chapter: String?,
              val day: String?, val img: Int?, val tagName: String?, val nameBook: String?, val coverBook: Int?, val authorBook: String?, val qualification: Double, val synopsis: String?, val fechaEstreno: Date?) : Parcelable {
 
+
+
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),

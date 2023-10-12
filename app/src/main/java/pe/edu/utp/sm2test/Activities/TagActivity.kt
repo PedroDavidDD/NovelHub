@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 //import kotlinx.android.synthetic.main.activity_tag.rvEtiqueta
 import pe.edu.utp.sm2test.Adapters.TagsAdapter
-import pe.edu.utp.sm2test.Classes.Tag
+
 import pe.edu.utp.sm2test.R
 
 class TagActivity : AppCompatActivity() {
@@ -19,15 +19,5 @@ class TagActivity : AppCompatActivity() {
 //        rvEtiqueta.adapter= TagsAdapter(generarDatos(), this)
     }
 
-    private fun generarDatos(): ArrayList<Tag> {
-        var lista = ArrayList<Tag>()
-        lista.add(Tag(R.drawable.fantasia, "Fantasia"))
-        lista.add(Tag(R.drawable.fantasia, "Aventura"))
-        lista.add(Tag(R.drawable.fantasia, "Ciencia Ficcion"))
-        lista.add(Tag(R.drawable.fantasia, "Horror"))
-        lista.add(Tag(R.drawable.fantasia, "Humor"))
-        lista.add(Tag(R.drawable.fantasia, "Fan Ficcion"))
 
-        return lista
-    }
 }

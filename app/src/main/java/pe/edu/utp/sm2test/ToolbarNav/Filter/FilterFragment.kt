@@ -35,12 +35,16 @@ class FilterFragment : Fragment() {
         initialComponents(rootView)
 
         // Inicializar el adaptador y configurar el RecyclerView
-        listFilterBookAdapter = ListFilterBooksAdapter(requireContext(), BookProvider.booksList, R.layout.list_filter_item_books)
-        listFilterBooks.layoutManager = GridLayoutManager(requireContext(),2)
+        listFilterBookAdapter = ListFilterBooksAdapter(
+            requireContext(),
+            BookProvider.booksList,
+            R.layout.list_filter_item_books
+        )
+        listFilterBooks.layoutManager = GridLayoutManager(requireContext(), 2)
         listFilterBooks.adapter = listFilterBookAdapter
 
         // Iniciarlizar el Filtro
-        setFiltered()
+        setFiltered("","")
 
         return rootView
     }
@@ -66,15 +70,20 @@ class FilterFragment : Fragment() {
             // Filtrar la lista
             var booksFiltered: List<Books> = BookProvider.booksList
 
-            when (typeFilterMain){
+            when (typeFilterMain) {
                 "title" -> {
-                    booksFiltered = BookProvider.booksList.filter { book -> book.title!!.lowercase().contains(queryText, ignoreCase = true) }
+                    booksFiltered = BookProvider.booksList.filter { book ->
+                        book.title!!.lowercase().contains(queryText, ignoreCase = true)
+                    }
                 }
-                "tag" -> {
-                    booksFiltered = BookProvider.booksList.filter { book -> book.tagName!!.lowercase().contains(queryText) }
-                }
-            }
 
+                "tag" -> {
+                    booksFiltered = BookProvider.booksList.filter { book ->
+                        book.tagName!!.lowercase().contains(queryText, ignoreCase = true)
+                    }
+                }
+
+            }
             // Actualizar el adaptador con la lista filtrada
             listFilterBookAdapter!!.updListFilterBooks(booksFiltered.toMutableList())
 
