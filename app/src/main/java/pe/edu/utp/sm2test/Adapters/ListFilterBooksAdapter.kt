@@ -10,7 +10,6 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.TagsActivity
 
 class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListFilterBooksAdapter.BookViewHolder>() {
@@ -32,10 +31,10 @@ class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>,
         holder.img.setImageResource(book.img!!)
         holder.btnIr.text = book.title
         // Configurar el clic del botón para ver mas detalles
-        holder.btnIr.setOnClickListener {
-            val intent = Intent(holder.itemView.context, TagsActivity::class.java)
-            holder.itemView.context.startActivity(intent)
-        }
+//        holder.btnIr.setOnClickListener {
+//            val intent = Intent(holder.itemView.context, TagsActivity::class.java)
+//            holder.itemView.context.startActivity(intent)
+//        }
     }
     inner class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val img: ImageView = view.findViewById(R.id.iv_filter_card_img)

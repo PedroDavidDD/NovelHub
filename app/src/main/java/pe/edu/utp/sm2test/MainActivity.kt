@@ -164,9 +164,5 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun replaceActivity(){
-        val view=Intent(this, TagsActivity::class.java)
-        startActivity(view)
 
-    }
 }

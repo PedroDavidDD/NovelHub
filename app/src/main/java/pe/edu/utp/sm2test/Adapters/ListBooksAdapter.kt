@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.TagsActivity
 
 class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListBooksAdapter.BookViewHolder>() {
@@ -33,10 +32,10 @@ class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val l
         holder.img.setImageResource(book.img!!)
 
         // Configurar el clic del botón para ver mas detalles
-        holder.btnIr.setOnClickListener {
-            val intent = Intent(holder.itemView.context, TagsActivity::class.java)
-            holder.itemView.context.startActivity(intent)
-        }
+//        holder.btnIr.setOnClickListener {
+//            val intent = Intent(holder.itemView.context, TagsActivity::class.java)
+//            holder.itemView.context.startActivity(intent)
+//        }
     }
 
     override fun getItemCount(): Int {

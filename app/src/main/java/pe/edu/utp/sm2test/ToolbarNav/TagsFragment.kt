@@ -31,7 +31,7 @@ class TagsFragment : Fragment() {
        tagdapter = TagsAdapter(
            requireContext(),
            TagProvider.tagList,
-           R.layout.activity_item_tag
+           R.layout.activity_item_tag,
        )
         rootView.rvTags.layoutManager= GridLayoutManager(requireContext(),2)
         rootView.rvTags.adapter = tagdapter
