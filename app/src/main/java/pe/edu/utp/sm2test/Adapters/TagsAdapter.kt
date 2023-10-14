@@ -8,6 +8,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Models.Tags
@@ -30,34 +31,20 @@ class TagsAdapter(val context: Context,private var tagList: MutableList<Tags>, v
         holder.imageTag.setImageResource(tag.imageTag!!)
 
 
-        val bookFragment = BookFragment()
-        val bundle = Bundle()
-        bundle.putString("genero", tag.nameTag)  // Reemplaza con el valor que desees
-        bookFragment.arguments = bundle
+        holder.itemView.setOnClickListener {
+            val bookFragment = BookFragment()
+            val bundle = Bundle()
+            bundle.putString("genero", tag.nameTag)
+            bookFragment.arguments = bundle
 
-
-
-//        holder.itemView.setOnClickListener {
-//
-////            val intent = Intent(holder.itemView.context, BookFragment::class.java)
-//////            //intent.putExtra("genero", tag.nameTag)
-//////            //replaceFragment()
-//////            Log.d("libro", "nombretag" )
-////            holder.itemView.context.startActivity(intent)
-//        }
-
-//        holder.itemView.setOnClickListener {
-//
-//            // Reemplaza el fragmento actual con el nuevo fragmento
-//            val newFragment = BookFragment()  // Reemplaza "YourNewFragment" con el nombre de tu fragmento
-//            val transaction: FragmentTransaction = fragmentManager.beginTransaction()
-//            transaction.replace(R.id.framelibross, newFragment)  // R.id.fragmentContainer debe ser el ID de tu contenedor de fragmentos en tu diseño
-//            transaction.addToBackStack(null)  // Opcional, para agregar a la pila de retroceso
-//            transaction.commit()
-//        }
-
+            val fragmentManager = (context as AppCompatActivity).supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.frame_layout, bookFragment)
+                .commit()
+        }
 
     }
+
 
     override fun getItemCount(): Int {
         return tagList.size
