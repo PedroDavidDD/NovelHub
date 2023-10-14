@@ -90,8 +90,7 @@ class MainActivity : AppCompatActivity() {
                 // Si deseas realizar la búsqueda en tiempo real, puedes aplicar el filtro aquí
                 //filterData(newText)
                 // Mientras escribes en el Buscador, aparecen los tags
-                //replaceFragment(TagsFragment())
-                replaceActivity()
+                replaceFragment(TagsFragment())
                 println("Escribo")
 
                 if (newText.isNullOrEmpty()) {

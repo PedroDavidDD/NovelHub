@@ -1,5 +1,6 @@
 package pe.edu.utp.sm2test.Adapters
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +9,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.BooksActivity
+import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
 
-class TagsAdapter(private var tagList: MutableList<Tags>) :
+class TagsAdapter(val context: Context,private var tagList: MutableList<Tags>, val layout: Int) :
     RecyclerView.Adapter<TagsAdapter.TagsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagsViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.activity_item_tag, parent, false)
+            LayoutInflater.from(parent.context).inflate(layout, parent, false)
         return TagsViewHolder(itemView)
     }
 

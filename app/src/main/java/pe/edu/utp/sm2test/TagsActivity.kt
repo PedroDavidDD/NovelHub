@@ -13,7 +13,6 @@ import pe.edu.utp.sm2test.Adapters.TagsAdapter
 import pe.edu.utp.sm2test.Providers.TagProvider
 import pe.edu.utp.sm2test.databinding.ActivityTagsBinding
 
-
 class TagsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTagsBinding
 
@@ -21,20 +20,6 @@ class TagsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTagsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        initialComponents()
-
-    }
-
-    private fun initialComponents(){
-        binding.rvTags.layoutManager= GridLayoutManager(this,2)
-        binding.rvTags.adapter= TagsAdapter(TagProvider.tagList)
-
-        Log.d("libro", TagProvider.tagList.toString())
-
-
-
 
 
     }
