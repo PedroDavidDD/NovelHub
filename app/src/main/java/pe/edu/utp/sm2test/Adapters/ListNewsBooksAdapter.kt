@@ -1,17 +1,14 @@
 package pe.edu.utp.sm2test.Adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.TagsActivity
 import java.text.SimpleDateFormat
 
 class ListNewsBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :

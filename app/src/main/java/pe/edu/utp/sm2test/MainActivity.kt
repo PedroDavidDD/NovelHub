@@ -16,6 +16,7 @@ import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Providers.BookProvider
+import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -165,7 +166,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceActivity(){
-        val view=Intent(this, TagActivity::class.java)
+        val view=Intent(this, TagsActivity::class.java)
         startActivity(view)
 
     }

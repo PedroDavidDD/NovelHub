@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31" >
         <activity
-            android:name=".TagActivity"
+            android:name=".TagsActivity"
             android:exported="false" />
         <activity
             android:name=".BooksActivity"

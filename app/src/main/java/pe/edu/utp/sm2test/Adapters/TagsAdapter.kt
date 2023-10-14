@@ -1,29 +1,18 @@
 package pe.edu.utp.sm2test.Adapters
 
-import android.content.Context
 import android.content.Intent
-import android.nfc.Tag
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.navigation.NavigationBarItemView
 import pe.edu.utp.sm2test.BooksActivity
-import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.TagsActivity
-import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 
 class TagsAdapter(private var tagList: MutableList<Tags>) :
     RecyclerView.Adapter<TagsAdapter.TagsViewHolder>() {
-
-
-//    var onItemClick: ((Tag) -> Unit)? = null
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagsViewHolder {
         val itemView =

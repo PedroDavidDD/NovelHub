@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_tag.rvTags
+import kotlinx.android.synthetic.main.activity_tags.rvTags
 import pe.edu.utp.sm2test.Adapters.TagsAdapter
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
@@ -22,7 +22,7 @@ class TagsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_tag, container, false)
+        return inflater.inflate(R.layout.activity_tags, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){

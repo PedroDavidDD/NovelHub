@@ -13,13 +13,13 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import pe.edu.utp.sm2test.Adapters.BooksAdapter
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
+import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.Providers.TagProvider
 import pe.edu.utp.sm2test.databinding.ActivityBooksBinding
-import pe.edu.utp.sm2test.databinding.ActivityMainBinding
-import pe.edu.utp.sm2test.databinding.ActivityTagBinding
+
 
 class BooksActivity : AppCompatActivity() {
 
@@ -160,10 +160,21 @@ class BooksActivity : AppCompatActivity() {
     private fun initialComponents() {
         toolbar = binding.toolbar1
         binding.rvLibros.layoutManager= GridLayoutManager(this,2)
-        binding.rvLibros.adapter= BooksAdapter(BookProvider.booksList)
 
+        val queryText = intent.getStringExtra("genero").toString()
+        Toast.makeText(this, queryText, Toast.LENGTH_SHORT).show()
+
+        // Filtra la lista de libros por etiqueta
+        val filteredList = BookProvider.booksList.filter { book ->
+            book.tagName!!.lowercase().contains(queryText, ignoreCase = true)
+        }
+        binding.rvLibros.adapter= BooksAdapter(filteredList)
 
     }
+
+
+
+
 
     // Método para reemplazar fragmento en el contenedor
     private fun replaceFragment(fragment: Fragment) {

@@ -13,17 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--        <Button-->
-<!--            android:id="@+id/btnBooks"-->
-<!--            android:layout_width="61dp"-->
-<!--            android:layout_height="53dp"-->
-<!--            android:text="@string/btn_card_title_go"-->
-<!--            android:textColor="@color/black"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            android:background="@color/seed"-->
-<!--            />-->
-
         <TextView
             android:id="@+id/tvEtiqueta"
             android:layout_width="wrap_content"
