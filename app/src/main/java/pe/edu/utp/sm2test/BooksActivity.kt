@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -18,19 +19,26 @@ import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Providers.BookProvider
+import pe.edu.utp.sm2test.databinding.ActivityBooksBinding
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
+import pe.edu.utp.sm2test.databinding.ActivityTagBinding
 
 class BooksActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityBooksBinding
     private lateinit var toolbar: Toolbar
+    private lateinit var genero: TextView
+
     // Crear HomeFragment y pasar la lista de libros
     private var homeFragment: HomeFragment = HomeFragment()
     private var filterFragment: FilterFragment = FilterFragment()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_books)
+        binding = ActivityBooksBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
 
     private fun getBtnListeners() {

@@ -2,6 +2,7 @@ package pe.edu.utp.sm2test.Adapters
 
 import android.content.Context
 import android.content.Intent
+import android.nfc.Tag
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,51 +12,50 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationBarItemView
 import pe.edu.utp.sm2test.BooksActivity
+import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.TagsActivity
 import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 
-class TagsAdapter(private val tagsList: ArrayList<Tags>) : RecyclerView.Adapter<TagsAdapter.ViewHolderTags>(){
+class TagsAdapter(private var tagList: MutableList<Tags>) :
+    RecyclerView.Adapter<TagsAdapter.TagsViewHolder>() {
 
 
-    lateinit var context: Context
 //    var onItemClick: ((Tag) -> Unit)? = null
 
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderTags {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_tag, parent, false)
-        return ViewHolderTags(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagsViewHolder {
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.activity_item_tag, parent, false)
+        return TagsViewHolder(itemView)
     }
 
 
-
-    override fun onBindViewHolder(holder: ViewHolderTags, position: Int) {
-        val tag= tagsList[position]
-        holder.nameTag.text= tag.nameTag
+    override fun onBindViewHolder(holder: TagsViewHolder, position: Int) {
+        val tag = tagList[position]
+        holder.nameTag.text = tag.nameTag
         holder.imageTag.setImageResource(tag.imageTag!!)
 
-        holder.btnBook.setOnClickListener{
+        holder.itemView.setOnClickListener {
 
-                val intent = Intent(holder.itemView.context, BooksActivity::class.java)
-                holder.itemView.context.startActivity(intent)
+            val intent = Intent(holder.itemView.context, BooksActivity::class.java)
+            intent.putExtra("genero", tag.nameTag)
+            holder.itemView.context.startActivity(intent)
 
         }
 
     }
 
     override fun getItemCount(): Int {
-        return tagsList.size
+        return tagList.size
     }
 
-    class ViewHolderTags(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var nameTag: TextView= itemView.findViewById(R.id.tvEtiqueta)
-        var imageTag: ImageView= itemView.findViewById(R.id.ivEtiqueta)
-        var btnBook: Button= itemView.findViewById(R.id.btnBooks)
+    class TagsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var nameTag: TextView = itemView.findViewById(R.id.tvEtiqueta)
+        var imageTag: ImageView = itemView.findViewById(R.id.ivEtiqueta)
 
     }
-
 
 
 }

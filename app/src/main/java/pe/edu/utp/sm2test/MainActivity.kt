@@ -1,8 +1,8 @@
 package pe.edu.utp.sm2test
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
@@ -14,9 +14,7 @@ import androidx.fragment.app.FragmentTransaction
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
-import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
-import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 
@@ -91,7 +89,8 @@ class MainActivity : AppCompatActivity() {
                 // Si deseas realizar la búsqueda en tiempo real, puedes aplicar el filtro aquí
                 //filterData(newText)
                 // Mientras escribes en el Buscador, aparecen los tags
-                replaceFragment(TagsFragment())
+                //replaceFragment(TagsFragment())
+                replaceActivity()
                 println("Escribo")
 
                 if (newText.isNullOrEmpty()) {
@@ -163,5 +162,11 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frame_layout, fragment)
         fragmentTransaction.commit()
+    }
+
+    private fun replaceActivity(){
+        val view=Intent(this, TagActivity::class.java)
+        startActivity(view)
+
     }
 }
