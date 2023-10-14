@@ -2,23 +2,21 @@ package pe.edu.utp.sm2test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.GridLayoutManager
+import pe.edu.utp.sm2test.Adapters.BooksAdapter
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
-import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
-import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
 import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
-import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Providers.BookProvider
+import pe.edu.utp.sm2test.Providers.TagProvider
 import pe.edu.utp.sm2test.databinding.ActivityBooksBinding
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 import pe.edu.utp.sm2test.databinding.ActivityTagBinding
@@ -27,7 +25,7 @@ class BooksActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBooksBinding
     private lateinit var toolbar: Toolbar
-    private lateinit var genero: TextView
+//    private lateinit var genero: TextView
 
     // Crear HomeFragment y pasar la lista de libros
     private var homeFragment: HomeFragment = HomeFragment()
@@ -39,7 +37,12 @@ class BooksActivity : AppCompatActivity() {
         binding = ActivityBooksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.tvGenero.text= intent.getStringExtra("genero")
+        initialComponents()
+
     }
+
 
     private fun getBtnListeners() {
 //        // Configurar el listener para la navegación de la parte inferior
@@ -156,6 +159,10 @@ class BooksActivity : AppCompatActivity() {
     // Método para inicializar componentes
     private fun initialComponents() {
         toolbar = binding.toolbar1
+        binding.rvLibros.layoutManager= GridLayoutManager(this,2)
+        binding.rvLibros.adapter= BooksAdapter(BookProvider.booksList)
+
+
     }
 
     // Método para reemplazar fragmento en el contenedor
