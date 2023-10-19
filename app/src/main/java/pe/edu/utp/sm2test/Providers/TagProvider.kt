@@ -8,33 +8,28 @@ class TagProvider {
         val tagList= mutableListOf<Tags>(
             Tags(
                 1,
-                "Fantasía",
+                "Fantasia",
                 R.drawable.fantasia
             ),
             Tags(
                 2,
                 "Terror",
-                R.drawable.horror
+                R.drawable.fantasia
             ),
             Tags(
                 3,
-                "Ciencia Ficción",
-                R.drawable.ciencia_ficcion
+                "Romance",
+                R.drawable.fantasia
             ),
             Tags(
                 4,
-                "Aventura",
-                R.drawable.aventura
+                "Ciencia Ficcion",
+                R.drawable.fantasia
             ),
             Tags(
                 5,
-                "Humor",
-                R.drawable.humor
-            ),
-            Tags(
-                6,
-                "Fan Ficción",
-                R.drawable.fan_ficcion
+                "Aventura",
+                R.drawable.fantasia
             )
 
 

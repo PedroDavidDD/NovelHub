@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import kotlinx.android.synthetic.main.fragment_book_details.view.ivPortadaLibro
 import kotlinx.android.synthetic.main.fragment_book_details.view.tvDescripcion
 import kotlinx.android.synthetic.main.fragment_book_details.view.tvNombreAutor
 import kotlinx.android.synthetic.main.fragment_book_details.view.tvNombreLibro
@@ -39,7 +38,6 @@ class DetailsBookFragment : Fragment() {
             requireContext(),
             filteredList.toMutableList()
         )
-        rootView.ivPortadaLibro.setImageResource(filteredList[0].coverBook!!)
         rootView.tvNombreAutor.text = filteredList[0].authorBook
         rootView.tvDescripcion.text = filteredList[0].synopsis
 

@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
     tools:context=".Fragments.DetailsBookFragment">
 
     <ImageView
         android:id="@+id/ivPortadaLibro"
         android:src="@drawable/fantasia"
         android:layout_width="0dp"
-        android:layout_height="220dp"
+        android:layout_height="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,23 +21,21 @@
         style="@style/estiloRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:stepSize="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvNombreLibro"
         app:layout_constraintTop_toBottomOf="@+id/ivPortadaLibro"
-  />
+        tools:ignore="MissingConstraints" />
 
 
     <TextView
         android:id="@+id/tvNombreLibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPortadaLibro"
@@ -48,10 +45,11 @@
         android:id="@+id/tvNombreAutor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
         android:textSize="12sp"
         android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombreLibro"
         tools:text="a" />
@@ -60,10 +58,11 @@
         android:id="@+id/tvDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
         android:textSize="12sp"
         android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombreAutor"
         tools:text="a" />
