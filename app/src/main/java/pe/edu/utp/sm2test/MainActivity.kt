@@ -1,5 +1,6 @@
 package pe.edu.utp.sm2test
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -19,6 +20,7 @@ import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
+import pe.edu.utp.sm2test.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -160,7 +162,8 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_account -> {
-                Toast.makeText(this, "action_account", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
