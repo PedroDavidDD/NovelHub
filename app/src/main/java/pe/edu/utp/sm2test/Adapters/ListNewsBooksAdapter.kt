@@ -1,19 +1,18 @@
 package pe.edu.utp.sm2test.Adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
+import java.text.SimpleDateFormat
 
-class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
-    RecyclerView.Adapter<ListBooksAdapter.BookViewHolder>() {
+class ListNewsBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
+    RecyclerView.Adapter<ListNewsBooksAdapter.BookViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,16 +25,13 @@ class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val l
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = list[position]
         holder.title.text = book.title
-        holder.day.text = book.day
-        holder.chapter.text = book.chapter
+        holder.description.text = book.synopsis
         // Aquí debes cargar la imagen desde la ruta o recurso correspondiente
         holder.img.setImageResource(book.img!!)
 
-        // Configurar el clic del botón para ver mas detalles
-//        holder.btnIr.setOnClickListener {
-//            val intent = Intent(holder.itemView.context, TagsActivity::class.java)
-//            holder.itemView.context.startActivity(intent)
-//        }
+        val outputFormat = SimpleDateFormat("dd MMM")
+        val formattedDate = outputFormat.format(book.fechaEstreno)
+        holder.date.text = formattedDate.uppercase()
     }
 
     override fun getItemCount(): Int {
@@ -43,14 +39,13 @@ class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val l
     }
 
     inner class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = view.findViewById(R.id.tv_card_title)
-        val day: TextView = view.findViewById(R.id.tv_card_day)
-        val chapter: TextView = view.findViewById(R.id.tv_card_chapter)
-        val img: ImageView = view.findViewById(R.id.iv_card_img)
-        val btnIr: Button = view.findViewById(R.id.btn_card_title_go)
+        val img: ImageView = view.findViewById(R.id.iv_news_card_img)
+        val title: TextView = view.findViewById(R.id.tv_news_card_title)
+        val description: TextView = view.findViewById(R.id.tv_news_card_day)
+        val date: TextView = view.findViewById(R.id.tv_news_card_title_go)
     }
+
     fun updateBookList(list: MutableList<Books>){
-        //this.list.clear()
         this.list.addAll(list)
         notifyDataSetChanged()
     }

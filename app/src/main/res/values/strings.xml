@@ -15,12 +15,14 @@
     </string-array>
     <string name="tv_card_title">The Beginning Aftr The End</string>
     <string name="tv_card_day">Cada Viernes</string>
+    <string name="tv_news_card_description">El Rey Grey tiene una fuerza, riqueza y prestigio incomparables en un mundo gobernado por la habilidad marcial. Sin embargo, la soledad se mantiene muy por detrás de aquellos con gran poder.</string>
     <string name="tv_card_chapter">56 Capítulos</string>
     <string name="et_buscador">Buscar...</string>
     <string name="btn_inicio">Inicioa</string>
     <string name="btn_explorar">Explorar</string>
     <string name="btn_misSeries">Mis Series</string>
     <string name="btn_card_title_go">Ir</string>
+    <string name="btn_news_card_title_go">14 SEPT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

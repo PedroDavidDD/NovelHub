@@ -8,7 +8,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_listBooks"
-        android:layout_width="406dp"
+        android:layout_width="match_parent"
         android:layout_height="617dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

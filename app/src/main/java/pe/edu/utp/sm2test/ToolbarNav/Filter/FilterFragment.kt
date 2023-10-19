@@ -7,18 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 import pe.edu.utp.sm2test.Adapters.ListFilterBooksAdapter
 import pe.edu.utp.sm2test.Models.Books
+import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.R
 
 class FilterFragment : Fragment() {
 
     // Declaración de variables
-    private var listFilterBook: ArrayList<Books> = arrayListOf()
     private lateinit var listFilterBooks: RecyclerView
     private var searchFilterBooks: EditText? = null
     private var listFilterBookAdapter: ListFilterBooksAdapter? = null
@@ -34,10 +35,15 @@ class FilterFragment : Fragment() {
         initialComponents(rootView)
 
         // Inicializar el adaptador y configurar el RecyclerView
-        listFilterBookAdapter = ListFilterBooksAdapter(requireContext(), listFilterBook, R.layout.list_filter_item_books)
-        listFilterBooks.layoutManager = GridLayoutManager(requireContext(),2)
+        listFilterBookAdapter = ListFilterBooksAdapter(
+            requireContext(),
+            BookProvider.booksList,
+            R.layout.list_filter_item_books
+        )
+        listFilterBooks.layoutManager = GridLayoutManager(requireContext(), 2)
         listFilterBooks.adapter = listFilterBookAdapter
 
+        // Iniciarlizar el Filtro
         setFiltered()
 
         return rootView
@@ -49,22 +55,38 @@ class FilterFragment : Fragment() {
         searchFilterBooks = rootView.findViewById(R.id.et_filter_buscar)
     }
 
-    // Método para establecer la lista de libros en HomeFragment
-    fun setFilterBookList(bookList: ArrayList<Books>) {
-        // Limpiar la lista actual y agregar nuevos elementos
-        listFilterBook.clear()
-        listFilterBook.addAll(bookList)
+    fun setFilterBookList(bookList: MutableList<Books>) {
 
-        // Verificar si el adaptador no es nulo y notificar cambios en los datos
-        listFilterBookAdapter?.notifyDataSetChanged()
+        // Actualizar el adaptador con la lista filtrada
+        listFilterBookAdapter?.updListFilterBooks(bookList.toMutableList())
     }
-
-    fun setFiltered(data: String? = null) {
+    // SubFiltro
+    private fun setFiltered(data: String? = null, typeFilterMain: String? = "title") {
         var queryText: String = ""
-        searchFilterBooks?.addTextChangedListener {query ->
+
+        searchFilterBooks?.addTextChangedListener { query ->
+
             queryText = (data ?: query.toString()).trim().lowercase()
-            val booksFiltered = listFilterBook.filter { book -> book.title!!.lowercase().contains(queryText) }
-            listFilterBookAdapter!!.updListFilterBooks(ArrayList(booksFiltered))
+
+            // Filtrar la lista
+            var booksFiltered: List<Books> = BookProvider.booksList.filter { book ->
+                book.title!!.lowercase().contains(queryText, ignoreCase = true)
+            }
+
+            when (typeFilterMain) {
+                "title" -> {
+                    booksFiltered = BookProvider.booksList.filter { book ->
+                        book.title!!.lowercase().contains(queryText, ignoreCase = true)
+                    }
+                }
+                "tag" -> {
+                    booksFiltered = BookProvider.booksList.filter { book ->
+                        book.tagName!!.lowercase().contains(queryText, ignoreCase = true)
+                    }
+                }
+            }
+            // Actualizar el adaptador con la lista filtrada
+            listFilterBookAdapter!!.updListFilterBooks(booksFiltered.toMutableList())
         }
         searchFilterBooks?.setText(queryText)
     }
