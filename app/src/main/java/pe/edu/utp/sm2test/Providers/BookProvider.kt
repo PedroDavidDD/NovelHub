@@ -291,6 +291,23 @@ class BookProvider {
 
             )
 
+        val booksListNoData = mutableListOf<Books>(
+            Books(
+                "Título",
+                "Día 0",
+                "Capítulo 0",
+                R.drawable.tbate,
+                "sinTag",
+                "Título",
+                R.drawable.tbate,
+                "SinAutor",
+                0.0,
+                "Sinopsis",
+                parseDate("10/09/2023")
+            ),
+        )
+
+
         private fun parseDate(dateStr: String): Date? {
             val inputFormat  = SimpleDateFormat("dd/MM/yyyy") // Define el formato de la cadena
             return try {
