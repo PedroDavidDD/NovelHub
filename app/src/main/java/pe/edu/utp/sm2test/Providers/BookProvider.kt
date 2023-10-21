@@ -11,6 +11,7 @@ class BookProvider {
     companion object {
         val booksList = mutableListOf<Books>(
             Books(
+                0,
                 "The beginning after the end 1",
                 "Día 5",
                 "Capítulo 20",
@@ -24,6 +25,7 @@ class BookProvider {
                 parseDate("10/09/2023")
             ),
             Books(
+                1,
                 "The Name of the Wind",
                 "Día 5",
                 "Capítulo 20",
@@ -37,6 +39,7 @@ class BookProvider {
                 parseDate("10/09/2007")
             ),
             Books(
+                2,
                 "The Hobbit",
                 "Día 5",
                 "Capítulo 20",
@@ -50,6 +53,7 @@ class BookProvider {
                 parseDate("10/09/1937")
             ),
             Books(
+                3,
                 "Harry Potter and the Sorcerer's Stone",
                 "Día 5",
                 "Capítulo 20",
@@ -63,6 +67,7 @@ class BookProvider {
                 parseDate("10/09/1997")
             ),
             Books(
+                4,
                 "A Game of Thrones",
                 "Día 5",
                 "Capítulo 20",
@@ -76,6 +81,7 @@ class BookProvider {
                 parseDate("10/09/1996")
             ),
             Books(
+                5,
                 "The Wise Man's Fear",
                 "Día 5",
                 "Capítulo 20",
@@ -89,6 +95,7 @@ class BookProvider {
                 parseDate("10/09/2011")
             ),
             Books(
+                6,
                 "Salem’s Lot",
                 "Día 5",
                 "Capítulo 20",
@@ -102,6 +109,7 @@ class BookProvider {
                 parseDate("10/09/1975")
             ),
             Books(
+                7,
                 "Those Across the River",
                 "Día 5",
                 "Capítulo 20",
@@ -115,6 +123,7 @@ class BookProvider {
                 parseDate("10/09/1975")
             ),
             Books(
+                8,
                 "The Exorcist",
                 "Día 5",
                 "Capítulo 20",
@@ -129,6 +138,7 @@ class BookProvider {
             )
             ,
             Books(
+                9,
                 "The Blazing World",
                 "Día 5",
                 "Capítulo 20",
@@ -143,6 +153,7 @@ class BookProvider {
             )
             ,
             Books(
+                10,
                 "Frankenstein",
                 "Día 5",
                 "Capítulo 20",
@@ -156,6 +167,7 @@ class BookProvider {
                 parseDate("10/09/1818")
             ),
             Books(
+                11,
                 "The Stars My Destination",
                 "Día 5",
                 "Capítulo 20",
@@ -169,6 +181,7 @@ class BookProvider {
                 parseDate("10/09/1957")
             ),
             Books(
+                12,
                 "Don Quixote",
                 "Día 5",
                 "Capítulo 20",
@@ -182,6 +195,7 @@ class BookProvider {
                 parseDate("10/09/1957")
             ),
             Books(
+                13,
                 "The Three Musketeers",
                 "Día 5",
                 "Capítulo 20",
@@ -195,6 +209,7 @@ class BookProvider {
                 parseDate("10/09/1957")
             ),
             Books(
+                14,
                 "Treasure Island",
                 "Día 5",
                 "Capítulo 20",
@@ -207,7 +222,7 @@ class BookProvider {
                 "Written by Scottish author Robert Louis Stevenson, this story of “buccaneers and buried gold” launched a million tropes of treasure maps, sea chests, Black Spots, and deserted islands.",
                 parseDate("10/09/1957")
             ),
-            Books(
+            Books( 15,
                 "A Man Called Ove",
                 "Día 5",
                 "Capítulo 20",
@@ -220,7 +235,7 @@ class BookProvider {
                 "Ove is almost certainly the grumpiest man you will ever meet He thinks himself surrounded by idiots joggers neighbours who cant reverse a trailer properly and shop assistants who talk in code But isnt it rare these days to find such oldfashioned clarity of belief and deed Such unswerving conviction about what the world should be and a lifelong dedication to making it just so",
                 parseDate("10/09/1957")
             ),
-            Books(
+            Books( 16,
                 "Beach Read",
                 "Día 5",
                 "Capítulo 20",
@@ -233,7 +248,7 @@ class BookProvider {
                 "Augustus Everett is an acclaimed author of literary fiction. January Andrews writes bestselling romance. When she pens a happily ever after, he kills off his entire cast. They're polar opposites. In fact, the only thing they have in common is that for the next three months, they're living in neighboring beach houses, broke, and bogged down with writer's block. Until, one hazy evening, one thing leads to another and they strike a deal designed to force them out of their creative ruts: Augustus will spend the summer writing something happy, and January will pen the next Great American Novel. She'll take him on field trips worthy of any rom-com montage, and he'll take her to interview surviving members of a backwoods death cult (obviously). Everyone will finish a book and no one will fall in love. Really.\n",
                 parseDate("10/09/1957")
             ),
-            Books(
+            Books( 17,
                 "The Boy, the Mole, the Fox and the Horse",
                 "Día 5",
                 "Capítulo 20",
@@ -246,7 +261,7 @@ class BookProvider {
                 "Charlie Mackesy offers inspiration and hope in uncertain times in this beautiful book, following the tale of a curious boy, a greedy mole, a wary fox and a wise horse who find themselves together in sometimes difficult terrain, sharing their greatest fears and biggest discoveries about vulnerability, kindness, hope, friendship and love. The shared adventures and important conversations between the four friends are full of life lessons that have connected with readers of all ages. ",
                 parseDate("10/09/1957")
             ),
-            Books(
+            Books( 18,
                 "Don Quixote",
                 "Día 5",
                 "Capítulo 20",
@@ -259,7 +274,7 @@ class BookProvider {
                 "Regarded as one of the greatest works in literature, Don Quixote recounts the adventures of Alonso Quixano: a middle-aged man so obsessed with chivalric books that he decides to imitate them and become a knight-errant. So begins his journey to find a faithful squire, save damsels in distress, and fight windmills.",
                 parseDate("10/09/1957")
             ),
-            Books(
+            Books( 19,
                 "The Three Musketeers",
                 "Día 5",
                 "Capítulo 20",
@@ -272,7 +287,7 @@ class BookProvider {
                 "In this classic by Dumas, a young man named d’Artagnan joins the Musketeers of the Guard. In doing so, he befriends Athos, Porthos, and Aramis — the King’s most celebrated musketeers — and embarks on a journey of his own.",
                 parseDate("10/09/1957")
             ),
-            Books(
+            Books( 20,
                 "Treasure Island",
                 "Día 5",
                 "Capítulo 20",
@@ -290,23 +305,6 @@ class BookProvider {
 
 
             )
-
-        val booksListNoData = mutableListOf<Books>(
-            Books(
-                "Título",
-                "Día 0",
-                "Capítulo 0",
-                R.drawable.tbate,
-                "sinTag",
-                "Título",
-                R.drawable.tbate,
-                "SinAutor",
-                0.0,
-                "Sinopsis",
-                parseDate("10/09/2023")
-            ),
-        )
-
 
         private fun parseDate(dateStr: String): Date? {
             val inputFormat  = SimpleDateFormat("dd/MM/yyyy") // Define el formato de la cadena

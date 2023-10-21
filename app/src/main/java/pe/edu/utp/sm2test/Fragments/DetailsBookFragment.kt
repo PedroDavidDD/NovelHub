@@ -28,16 +28,13 @@ class DetailsBookFragment : Fragment() {
 
         val rootView = inflater.inflate(R.layout.fragment_book_details, container, false)
 
+        val queryText = arguments?.getInt("idLibro")
 
-        val queryText = arguments?.getString("nombreLibro").toString().trim().lowercase()
-
-        rootView.tvNombreLibro.text = queryText
 
         // Filtra la lista de libros por nombre Libro
-        val filteredList = BookProvider.booksList.find { book ->
-            book.nameBook.toString().lowercase().contains(queryText, ignoreCase = true)
-        } ?: BookProvider.booksListNoData.first()
+        val filteredList = BookProvider.booksList.find { it.id == queryText }
 
+        if ( filteredList != null ){
             bookAdapter = BooksAdapter(requireContext(), mutableListOf(filteredList))
 
             val img = filteredList.coverBook
@@ -48,9 +45,10 @@ class DetailsBookFragment : Fragment() {
                     .centerCrop()
                     .into(viewImg)
             }
-
+            rootView.tvNombreLibro.text = filteredList.nameBook
             rootView.tvNombreAutor.text = filteredList.authorBook
             rootView.tvDescripcion.text = filteredList.synopsis
+        }
 
         return rootView
     }

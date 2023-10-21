@@ -40,7 +40,7 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
             val bookFragment= DetailsBookFragment()
             val bundle= Bundle()
 
-            bundle.putString("nombreLibro", book.nameBook)
+            bundle.putInt("idLibro", book.id)
             bookFragment.arguments = bundle
 
             val fragmentManager= (context as AppCompatActivity).supportFragmentManager

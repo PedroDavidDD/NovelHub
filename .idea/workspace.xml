@@ -17,7 +17,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/BooksAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/BooksAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/DetailsBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/DetailsBookFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Models/Books.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Models/Books.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Providers/BookProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Providers/BookProvider.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
