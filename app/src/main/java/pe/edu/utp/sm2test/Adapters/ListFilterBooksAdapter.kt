@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
+import pe.edu.utp.sm2test.ReadBooksFragment
 
 class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListFilterBooksAdapter.BookViewHolder>() {
@@ -28,13 +31,21 @@ class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>,
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = list[position]
         // Aquí debes cargar la imagen desde la ruta o recurso correspondiente
-        holder.img.setImageResource(book.img!!)
+        val img = book.img
+        val viewImg = holder.img
+        Picasso.get().load(img!!)
+            .resize(viewImg.width, 220)
+            .centerCrop()
+            .into(viewImg)
+
         holder.btnIr.text = book.title
-        // Configurar el clic del botón para ver mas detalles
-//        holder.btnIr.setOnClickListener {
-//            val intent = Intent(holder.itemView.context, TagsActivity::class.java)
-//            holder.itemView.context.startActivity(intent)
-//        }
+         // Configurar el clic del botón para ver mas detalles
+        holder.btnIr.setOnClickListener {
+            val fragmentManager = (context as AppCompatActivity).supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.frame_layout, ReadBooksFragment())
+                .commit()
+        }
     }
     inner class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val img: ImageView = view.findViewById(R.id.iv_filter_card_img)

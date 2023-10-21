@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
@@ -28,8 +29,13 @@ class TagsAdapter(val context: Context,private var tagList: MutableList<Tags>, v
     override fun onBindViewHolder(holder: TagsViewHolder, position: Int) {
         val tag = tagList[position]
         holder.nameTag.text = tag.nameTag
-        holder.imageTag.setImageResource(tag.imageTag!!)
 
+        val img = tag.imageTag
+        val viewImg = holder.imageTag
+        Picasso.get().load(img!!)
+            .resize(viewImg.width, 50)
+            .centerCrop()
+            .into(viewImg)
 
         holder.itemView.setOnClickListener {
             val bookFragment = BookFragment()

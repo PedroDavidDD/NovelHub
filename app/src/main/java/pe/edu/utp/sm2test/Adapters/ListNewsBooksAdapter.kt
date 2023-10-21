@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
 import java.text.SimpleDateFormat
@@ -27,7 +28,12 @@ class ListNewsBooksAdapter(val context: Context, var list: MutableList<Books>, v
         holder.title.text = book.title
         holder.description.text = book.synopsis
         // Aquí debes cargar la imagen desde la ruta o recurso correspondiente
-        holder.img.setImageResource(book.img!!)
+        val img = book.img
+        val viewImg = holder.img
+        Picasso.get().load(img!!)
+            .resize(viewImg.width, 340)
+            .centerCrop()
+            .into(viewImg)
 
         val outputFormat = SimpleDateFormat("dd MMM")
         val formattedDate = outputFormat.format(book.fechaEstreno)

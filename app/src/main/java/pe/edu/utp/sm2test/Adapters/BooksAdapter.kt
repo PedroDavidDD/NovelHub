@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Fragments.DetailsBookFragment
 import pe.edu.utp.sm2test.Models.Books
@@ -24,10 +25,15 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
 
     override fun onBindViewHolder(holder: BooksViewHolder, position: Int) {
         val book= bookList[position]
-        holder.coverBook.setImageResource(book.coverBook!!)
         holder.nameBook.text= book.nameBook
         holder.nameAuthor.text= book.authorBook
 
+        val img = book.coverBook
+        val viewImg = holder.coverBook
+        Picasso.get().load(img!!)
+            .resize(viewImg.width, 180)
+            .centerCrop()
+            .into(viewImg)
 
         holder.itemView.setOnClickListener {
 
@@ -50,8 +56,6 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
     }
 
     class BooksViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        var nameTag: TextView = itemView.findViewById(R.id.tvEtiqueta)
-//        var calificacion: RatingBar= itemView.findViewById(R.id.elpRbCalificacion)
         var coverBook: ImageView = itemView.findViewById(R.id.ivPortadaLibro)
         var nameBook: TextView= itemView.findViewById(R.id.tvNombreLibro)
         var nameAuthor: TextView= itemView.findViewById(R.id.tvNombreAutor)

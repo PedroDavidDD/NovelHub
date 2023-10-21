@@ -1,5 +1,7 @@
 package pe.edu.utp.sm2test.Providers
 
+import android.widget.ImageView
+import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
 import java.text.SimpleDateFormat
@@ -298,6 +300,9 @@ class BookProvider {
                 null
             }
 
+        }
+        fun loadBookImage(book: Books, imageView: ImageView) {
+            Picasso.get().load(book.img!!).into(imageView)
         }
 
     }
