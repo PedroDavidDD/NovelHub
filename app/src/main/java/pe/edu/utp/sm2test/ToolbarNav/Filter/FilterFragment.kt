@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 import pe.edu.utp.sm2test.Adapters.ListFilterBooksAdapter
+import pe.edu.utp.sm2test.Enums.TypeFilterBook
+import pe.edu.utp.sm2test.ExtensionFunctions.setTextColorRes
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.R
@@ -21,7 +23,7 @@ class FilterFragment : Fragment() {
 
     // Declaración de variables
     private lateinit var listFilterBooks: RecyclerView
-    private var searchFilterBooks: EditText? = null
+    private lateinit var searchFilterBooks: EditText
     private var listFilterBookAdapter: ListFilterBooksAdapter? = null
 
     override fun onCreateView(
@@ -44,7 +46,8 @@ class FilterFragment : Fragment() {
         listFilterBooks.adapter = listFilterBookAdapter
 
         // Iniciarlizar el Filtro
-        setFiltered()
+        setSubFiltered()
+        searchFilterBooks.setTextColorRes(R.color.black, R.color.white)
 
         return rootView
     }
@@ -56,39 +59,38 @@ class FilterFragment : Fragment() {
     }
 
     fun setFilterBookList(bookList: MutableList<Books>) {
-
         // Actualizar el adaptador con la lista filtrada
         listFilterBookAdapter?.updListFilterBooks(bookList.toMutableList())
     }
     // SubFiltro
-    private fun setFiltered(data: String? = null, typeFilterMain: String? = "title") {
+    private fun setSubFiltered(data: String? = null, typeFilterMain: String? = TypeFilterBook.title.toString()) {
         var queryText: String = ""
 
-        searchFilterBooks?.addTextChangedListener { query ->
+        searchFilterBooks.addTextChangedListener { query ->
 
             queryText = (data ?: query.toString()).trim().lowercase()
 
             // Filtrar la lista
             var booksFiltered: List<Books> = BookProvider.booksList.filter { book ->
-                book.title!!.lowercase().contains(queryText, ignoreCase = true)
+                book.title.toString().lowercase().contains(queryText, ignoreCase = true)
             }
 
             when (typeFilterMain) {
-                "title" -> {
+                TypeFilterBook.title.toString() -> {
                     booksFiltered = BookProvider.booksList.filter { book ->
-                        book.title!!.lowercase().contains(queryText, ignoreCase = true)
+                        book.title.toString().lowercase().contains(queryText, ignoreCase = true)
                     }
                 }
-                "tag" -> {
+                TypeFilterBook.tag.toString() -> {
                     booksFiltered = BookProvider.booksList.filter { book ->
-                        book.tagName!!.lowercase().contains(queryText, ignoreCase = true)
+                        book.tagName.toString().lowercase().contains(queryText, ignoreCase = true)
                     }
                 }
             }
             // Actualizar el adaptador con la lista filtrada
-            listFilterBookAdapter!!.updListFilterBooks(booksFiltered.toMutableList())
+            listFilterBookAdapter?.updListFilterBooks(booksFiltered.toMutableList())
         }
-        searchFilterBooks?.setText(queryText)
+        searchFilterBooks.setText(queryText)
     }
 
 }

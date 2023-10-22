@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
+import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Fragments.DetailsBookFragment
 import pe.edu.utp.sm2test.Models.Books
@@ -29,11 +31,7 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
         holder.nameAuthor.text= book.authorBook
 
         val img = book.coverBook
-        val viewImg = holder.coverBook
-        Picasso.get().load(img!!)
-            .resize(viewImg.width, 180)
-            .centerCrop()
-            .into(viewImg)
+        holder.coverBook.picassoLoadImageLocal(img!!, 0, 180)
 
         holder.itemView.setOnClickListener {
 
@@ -43,9 +41,7 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
             bundle.putInt("idLibro", book.id)
             bookFragment.arguments = bundle
 
-            val fragmentManager= (context as AppCompatActivity).supportFragmentManager
-            fragmentManager.beginTransaction().replace(R.id.frame_layout, bookFragment).commit()
-
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  bookFragment, true)
 
 
         }

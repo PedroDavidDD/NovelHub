@@ -316,9 +316,6 @@ class BookProvider {
             }
 
         }
-        fun loadBookImage(book: Books, imageView: ImageView) {
-            Picasso.get().load(book.img!!).into(imageView)
-        }
 
     }
 

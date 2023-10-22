@@ -10,6 +10,8 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
+import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.ReadBooksFragment
@@ -32,19 +34,12 @@ class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>,
         val book = list[position]
         // Aquí debes cargar la imagen desde la ruta o recurso correspondiente
         val img = book.img
-        val viewImg = holder.img
-        Picasso.get().load(img!!)
-            .resize(viewImg.width, 220)
-            .centerCrop()
-            .into(viewImg)
+        holder.img.picassoLoadImageLocal(img!!, 178, 220)
 
         holder.btnIr.text = book.title
          // Configurar el clic del botón para ver mas detalles
         holder.btnIr.setOnClickListener {
-            val fragmentManager = (context as AppCompatActivity).supportFragmentManager
-            fragmentManager.beginTransaction()
-                .replace(R.id.frame_layout, ReadBooksFragment())
-                .commit()
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  ReadBooksFragment(), true)
         }
     }
     inner class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -3,17 +3,23 @@ package pe.edu.utp.sm2test
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.core.content.ContextCompat
+import androidx.core.view.marginTop
 import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.BottomNavigation.NewsFragment
+import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
+import pe.edu.utp.sm2test.ExtensionFunctions.setAlertMessage
+import pe.edu.utp.sm2test.ExtensionFunctions.setTextColorRes
 import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.ToolbarNav.TagsFragment
@@ -39,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         getSettingsToolbar()
 
         // Reemplazar fragmento por defecto
-        replaceFragment(homeFragment)
+        supportFragmentManager.replaceFragment(R.id.frame_layout,  homeFragment, true)
         // Establecer la lista de libros en el fragmento HomeFragment
         homeFragment.setBookList(BookProvider.booksList)
 
@@ -53,13 +59,13 @@ class MainActivity : AppCompatActivity() {
             // Realizar acciones para el botón
             when (item.itemId) {
                 R.id.btnInicio -> {
-                    replaceFragment(homeFragment)
+                    supportFragmentManager.replaceFragment(R.id.frame_layout,  homeFragment, true)
                 }
                 R.id.btnExplorar -> {
-                    replaceFragment(NewsFragment())
+                    supportFragmentManager.replaceFragment(R.id.frame_layout,  NewsFragment(), true)
                 }
                 R.id.btnMisSeries -> {
-                    replaceFragment(MyNovelsFragment())
+                    supportFragmentManager.replaceFragment(R.id.frame_layout,  MyNovelsFragment(), true)
                 }
             }
         }
@@ -67,10 +73,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getSettingsToolbar(){
-        // Configurar Toolbar
-        setSupportActionBar(toolbar)
-        // Cambiar el título del Toolbar
-        supportActionBar?.title = "NovelHub"
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -82,21 +84,17 @@ class MainActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Aquí puedes realizar la búsqueda y aplicar el filtro a tu RecyclerView
-                filterData(query)
-                println("Selecciono: $query")
+                filterDataMain(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // Si deseas realizar la búsqueda en tiempo real, puedes aplicar el filtro aquí
-                //filterData(newText)
                 // Mientras escribes en el Buscador, aparecen los tags
-                replaceFragment(TagsFragment())
-                println("Escribo")
+                supportFragmentManager.replaceFragment(R.id.frame_layout,  TagsFragment(), true)
 
                 if (newText.isNullOrEmpty()) {
                     // El texto está vacío o nulo, puedes realizar alguna acción aquí
-                    replaceFragment(filterFragment)
+                    supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
                     // El texto está vacío, restaura la lista original en el fragmento HomeFragment
                     filterFragment.setFilterBookList(BookProvider.booksList)
                 }
@@ -109,28 +107,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Método para filtrar datos (a implementar)
-    private fun filterData(query: String?) {
+    private fun filterDataMain(query: String?) {
         // Verificar si el query es nulo o muy corto
         if (query.isNullOrEmpty() || query.length < 3) {
-            // No se hace nada si el query es nulo o muy corto
-            Toast.makeText(this,"Mínimo 3 caracteres",Toast.LENGTH_SHORT).show()
+            // errorMessageTextView
+            val errorMessageTextView = findViewById<TextView>(R.id.tvErrorMessage)
+            errorMessageTextView.setTextColorRes(R.color.black, R.color.md_theme_light_primary)
+            errorMessageTextView.setAlertMessage("Mínimo 3 caracteres", 3000)
+
             return
         }
+
         val queryText = query.toString().trim().lowercase()
         // Filtra la lista de libros por título
         val filteredList = BookProvider.booksList.filter { book ->
-            book.title!!.lowercase().contains(queryText, ignoreCase = true)
+            book.title.toString().lowercase().contains(queryText, ignoreCase = true)
         }
         //[Encontró algo?]
-        replaceFragment(filterFragment)
+        supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
         if (filteredList.isEmpty()) {
             // Si filteredList está vacío, restaura la lista original
             filterFragment.setFilterBookList( BookProvider.booksList )
-            Toast.makeText(this,"NO HA ENCONTRADO COINCIDENCIAS",Toast.LENGTH_SHORT).show()
         } else {
             // Si filteredList no está vacío, establece la lista filtrada
             filterFragment.setFilterBookList(filteredList.toMutableList())
-            Toast.makeText(this, "ELEMENTOS ENCONTRADOS", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -156,15 +156,10 @@ class MainActivity : AppCompatActivity() {
     // Método para inicializar componentes
     private fun initialComponents() {
         toolbar = binding.toolbar1
-    }
+        // Configurar Toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "NovelHub"
 
-    // Método para reemplazar fragmento en el contenedor
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
-        fragmentTransaction.commit()
     }
-
 
 }

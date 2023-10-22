@@ -11,9 +11,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
+import pe.edu.utp.sm2test.ReadBooksFragment
 
 class TagsAdapter(val context: Context,private var tagList: MutableList<Tags>, val layout: Int) :
     RecyclerView.Adapter<TagsAdapter.TagsViewHolder>() {
@@ -33,7 +35,7 @@ class TagsAdapter(val context: Context,private var tagList: MutableList<Tags>, v
         val img = tag.imageTag
         val viewImg = holder.imageTag
         Picasso.get().load(img!!)
-            .resize(viewImg.width, 50)
+            .resize(50, 50)
             .centerCrop()
             .into(viewImg)
 
@@ -43,10 +45,7 @@ class TagsAdapter(val context: Context,private var tagList: MutableList<Tags>, v
             bundle.putString("genero", tag.nameTag)
             bookFragment.arguments = bundle
 
-            val fragmentManager = (context as AppCompatActivity).supportFragmentManager
-            fragmentManager.beginTransaction()
-                .replace(R.id.frame_layout, bookFragment)
-                .commit()
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  bookFragment, true)
         }
 
     }
