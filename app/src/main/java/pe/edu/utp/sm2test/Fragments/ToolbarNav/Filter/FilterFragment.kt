@@ -18,6 +18,7 @@ import pe.edu.utp.sm2test.ExtensionFunctions.setTextColorRes
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.R
+import java.security.Provider
 
 class FilterFragment : Fragment() {
 
@@ -46,7 +47,7 @@ class FilterFragment : Fragment() {
         listFilterBooks.adapter = listFilterBookAdapter
 
         // Iniciarlizar el Filtro
-        setSubFiltered()
+//        setSubFiltered()
         searchFilterBooks.setTextColorRes(R.color.black, R.color.white)
 
         return rootView

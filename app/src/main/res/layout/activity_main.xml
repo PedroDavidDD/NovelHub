@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/toolbar_nav_menu" />
+        app:menu="@menu/toolbar_nav_menu"
+    />
 
     <TextView
         android:id="@+id/tvErrorMessage"
@@ -41,6 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar1">
 
     </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
@@ -49,6 +51,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

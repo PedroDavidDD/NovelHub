@@ -37,7 +37,7 @@ class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>,
         holder.img.picassoLoadImageLocal(img!!, 178, 220)
 
         holder.btnIr.text = book.title
-         // Configurar el clic del botón para ver mas detalles
+        // Configurar el clic del botón para ver mas detalles
         holder.btnIr.setOnClickListener {
             val detailsBookFragment = DetailsBookFragment()
             val bundle = Bundle()
