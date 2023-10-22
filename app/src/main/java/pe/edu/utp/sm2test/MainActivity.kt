@@ -3,11 +3,14 @@ package pe.edu.utp.sm2test
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.textclassifier.SelectionEvent
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.setViewTreeOnBackPressedDispatcherOwner
 import androidx.appcompat.widget.Toolbar
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.MyNovelsFragment
@@ -36,8 +39,6 @@ class MainActivity : AppCompatActivity() {
         //Log.d("libro", BookProvider.booksList.toString())
         // Inicializa los datos y componentes
         initialComponents()
-        // Datos del Toolbar
-        getSettingsToolbar()
 
         // Reemplazar fragmento por defecto
         supportFragmentManager.replaceFragment(R.id.frame_layout,  homeFragment, true)
@@ -63,18 +64,24 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.replaceFragment(R.id.frame_layout,  MyNovelsFragment(), true)
                 }
             }
+
         }
 
     }
 
     private fun getSettingsToolbar(){
+        setSupportActionBar(toolbar)
+        val actionBar = supportActionBar
+        actionBar?.title = "NovelHub"
+        // Configurar la barra de acción y habilitar el botón de retroceso
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_ios_24)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_nav_menu, menu)
         val searchItem = menu?.findItem(R.id.action_search)
         val searchView = searchItem?.actionView as SearchView
-
         // Configurar el Listener para el SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -89,9 +96,9 @@ class MainActivity : AppCompatActivity() {
 
                 if (newText.isNullOrEmpty()) {
                     // El texto está vacío o nulo, puedes realizar alguna acción aquí
-                    supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
+                    /*supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
                     // El texto está vacío, restaura la lista original en el fragmento HomeFragment
-                    filterFragment.setFilterBookList(BookProvider.booksList)
+                    filterFragment.setFilterBookList(BookProvider.booksList)*/
                 }
 
                 return true
@@ -144,6 +151,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+            android.R.id.home-> {
+                onBackPressed()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -152,8 +163,7 @@ class MainActivity : AppCompatActivity() {
     private fun initialComponents() {
         toolbar = binding.toolbar1
         // Configurar Toolbar
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = "NovelHub"
+        getSettingsToolbar()
 
     }
 

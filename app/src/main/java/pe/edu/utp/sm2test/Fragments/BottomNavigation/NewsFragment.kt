@@ -16,7 +16,6 @@ class NewsFragment : Fragment() {
 
     private lateinit var listBooks: RecyclerView
     private  var listBookAdapter: ListNewsBooksAdapter? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

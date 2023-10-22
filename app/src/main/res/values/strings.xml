@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SM2Test</string>
+    <string name="app_name">NovelHUB</string>
     <string name="tv_NombreApellido">Nombre y Apellido:</string>
     <string name="et_NombreApellido">Ingresar nombre</string>
     <string name="tv_contraseña">Contraseña:</string>
