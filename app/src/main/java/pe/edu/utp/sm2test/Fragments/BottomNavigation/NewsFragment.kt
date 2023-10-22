@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.Adapters.ListNewsBooksAdapter
+import pe.edu.utp.sm2test.MainActivity
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.R

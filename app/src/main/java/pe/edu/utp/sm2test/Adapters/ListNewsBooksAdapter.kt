@@ -1,14 +1,19 @@
 package pe.edu.utp.sm2test.Adapters
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
+import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
+import pe.edu.utp.sm2test.Fragments.DetailsBookFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
 import java.text.SimpleDateFormat
@@ -35,6 +40,15 @@ class ListNewsBooksAdapter(val context: Context, var list: MutableList<Books>, v
         val outputFormat = SimpleDateFormat("dd MMM")
         val formattedDate = outputFormat.format(book.fechaEstreno)
         holder.date.text = formattedDate.uppercase()
+
+        holder.date.setOnClickListener {
+
+            val detailsBookFragment = DetailsBookFragment()
+            val bundle = Bundle()
+            bundle.putInt("idBook", book.id)
+            detailsBookFragment.arguments = bundle
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  detailsBookFragment, true)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -45,7 +59,7 @@ class ListNewsBooksAdapter(val context: Context, var list: MutableList<Books>, v
         val img: ImageView = view.findViewById(R.id.iv_news_card_img)
         val title: TextView = view.findViewById(R.id.tv_news_card_title)
         val description: TextView = view.findViewById(R.id.tv_news_card_day)
-        val date: TextView = view.findViewById(R.id.tv_news_card_title_go)
+        val date: Button = view.findViewById(R.id.btn_news_card_title_go)
     }
 
     fun updateBookList(list: MutableList<Books>){

@@ -77,7 +77,6 @@ class MainActivity : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_ios_24)
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_nav_menu, menu)
         val searchItem = menu?.findItem(R.id.action_search)
