@@ -10,36 +10,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b2ae59f-0619-4618-9918-3e379b368585" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Enums/TypeFilterBook.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ExtensionFunctions/EditTextExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ExtensionFunctions/FormExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ExtensionFunctions/GeneralExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ExtensionFunctions/ImageViewExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ExtensionFunctions/StringExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ExtensionFunctions/TextViewExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ExtensionFunctions/ViewExt.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/ReadBooksFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/BooksAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/BooksAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/ListBooksAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/ListBooksAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/ListFilterBooksAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/ListFilterBooksAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/ListNewsBooksAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/ListNewsBooksAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/TagsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Adapters/TagsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/DetailsBookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/DetailsBookFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/BottomNavigation/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/BottomNavigation/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/BottomNavigation/MyNovelsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/BottomNavigation/MyNovelsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/BottomNavigation/NewsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/BottomNavigation/NewsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/BookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/BookFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Models/Books.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Models/Books.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Providers/BookProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Providers/BookProvider.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ToolbarNav/Filter/FilterFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ToolbarNav/Filter/FilterFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ReadBooksFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ToolbarNav/Filter/FilterFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/ToolbarNav/Filter/FilterFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/ToolbarNav/TagsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pe/edu/utp/sm2test/Fragments/ToolbarNav/Filter/TagsFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_filter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_filter.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/filter.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/toolbar_nav_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/toolbar_nav_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_novels.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_novels.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_news.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_news.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_read_books.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_read_books.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tags.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tags.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,10 +95,10 @@
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="valueResourceFile" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
         <option value="Kotlin File" />
         <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -161,9 +158,11 @@
       <recent name="pe.edu.utp.sm2test" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="pe.edu.utp.sm2test.Fragments" />
+      <recent name="pe.edu.utp.sm2test.Fragments.ToolbarNav.Filter" />
+      <recent name="pe.edu.utp.sm2test.Fragments.ToolbarNav" />
       <recent name="pe.edu.utp.sm2test" />
       <recent name="pe.edu.utp.sm2test.ToolbarNav" />
-      <recent name="pe.edu.utp.sm2test.Filter" />
     </key>
     <key name="android.template.812612978">
       <recent name="pe.edu.utp.sm2test" />

@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,7 +14,6 @@ import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Models.Tags
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.ReadBooksFragment
 
 class TagsAdapter(val context: Context,private var tagList: MutableList<Tags>, val layout: Int) :
     RecyclerView.Adapter<TagsAdapter.TagsViewHolder>() {

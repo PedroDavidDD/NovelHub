@@ -1,6 +1,8 @@
 package pe.edu.utp.sm2test.Adapters
 
 import android.content.Context
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +11,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
 import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
+import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.ReadBooksFragment
+import pe.edu.utp.sm2test.Fragments.ReadBooksFragment
 
 class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListBooksAdapter.BookViewHolder>() {
@@ -37,10 +39,15 @@ class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val l
         val img = book.img
         holder.img.picassoLoadImageLocal(img!!, 352, 504)
 
-
         // Configurar el clic del botón para ver mas detalles
         holder.btnIr.setOnClickListener {
-            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  ReadBooksFragment(), true)
+//            Log.d("2+ id", book.id.toString())
+            val readBooksFragment = ReadBooksFragment()
+            val bundle = Bundle()
+            bundle.putInt("idBook", book.id)
+            readBooksFragment.arguments = bundle
+
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  readBooksFragment, true)
         }
     }
 

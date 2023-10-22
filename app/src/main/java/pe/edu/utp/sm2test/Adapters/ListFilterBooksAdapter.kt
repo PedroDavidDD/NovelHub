@@ -1,7 +1,6 @@
 package pe.edu.utp.sm2test.Adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,11 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
 import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.ReadBooksFragment
+import pe.edu.utp.sm2test.Fragments.ReadBooksFragment
 
 class ListFilterBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListFilterBooksAdapter.BookViewHolder>() {

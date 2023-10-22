@@ -14,11 +14,11 @@ import kotlinx.android.synthetic.main.fragment_book.view.tvGenero
 import kotlinx.android.synthetic.main.fragment_tags.view.rvTags
 import pe.edu.utp.sm2test.Adapters.BooksAdapter
 import pe.edu.utp.sm2test.Adapters.TagsAdapter
-import pe.edu.utp.sm2test.BottomNavigation.HomeFragment
+import pe.edu.utp.sm2test.Fragments.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.Providers.TagProvider
 import pe.edu.utp.sm2test.R
-import pe.edu.utp.sm2test.ToolbarNav.Filter.FilterFragment
+import pe.edu.utp.sm2test.Fragments.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.databinding.ActivityBooksBinding
 import pe.edu.utp.sm2test.databinding.FragmentBookBinding
 
