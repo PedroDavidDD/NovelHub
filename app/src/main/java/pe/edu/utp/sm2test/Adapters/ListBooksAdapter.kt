@@ -1,16 +1,22 @@
 package pe.edu.utp.sm2test.Adapters
 
 import android.content.Context
-import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
+import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
+import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
+import pe.edu.utp.sm2test.Fragments.ReadBooksFragment
 
 class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val layout: Int) :
     RecyclerView.Adapter<ListBooksAdapter.BookViewHolder>() {
@@ -28,14 +34,21 @@ class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val l
         holder.title.text = book.title
         holder.day.text = book.day
         holder.chapter.text = book.chapter
-        // Aquí debes cargar la imagen desde la ruta o recurso correspondiente
-        holder.img.setImageResource(book.img!!)
+
+        // Cargar la imagen del libro utilizando Picasso
+        val img = book.img
+        holder.img.picassoLoadImageLocal(img!!, 352, 504)
 
         // Configurar el clic del botón para ver mas detalles
-//        holder.btnIr.setOnClickListener {
-//            val intent = Intent(holder.itemView.context, TagsActivity::class.java)
-//            holder.itemView.context.startActivity(intent)
-//        }
+        holder.btnIr.setOnClickListener {
+//            Log.d("2+ id", book.id.toString())
+            val readBooksFragment = ReadBooksFragment()
+            val bundle = Bundle()
+            bundle.putInt("idBook", book.id)
+            readBooksFragment.arguments = bundle
+
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  readBooksFragment, true)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -48,9 +61,9 @@ class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val l
         val chapter: TextView = view.findViewById(R.id.tv_card_chapter)
         val img: ImageView = view.findViewById(R.id.iv_card_img)
         val btnIr: Button = view.findViewById(R.id.btn_card_title_go)
+
     }
     fun updateBookList(list: MutableList<Books>){
-        //this.list.clear()
         this.list.addAll(list)
         notifyDataSetChanged()
     }

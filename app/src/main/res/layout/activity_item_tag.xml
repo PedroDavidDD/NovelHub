@@ -10,6 +10,7 @@
     app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -20,6 +21,7 @@
             android:layout_marginRight="10dp"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivEtiqueta"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +32,6 @@
             android:id="@+id/ivEtiqueta"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="30dp"
             android:src="@drawable/fantasia"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

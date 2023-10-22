@@ -4,12 +4,26 @@ import android.os.Parcel
 import android.os.Parcelable
 import java.util.Date
 
-data class Books (val title: String?, val chapter: String?,
-             val day: String?, val img: Int?, val tagName: String?, val nameBook: String?, val coverBook: Int?, val authorBook: String?, val qualification: Double, val synopsis: String?, val fechaEstreno: Date?) : Parcelable {
+data class Books(
+    val id: Int,
+    val title: String?,
+    val chapter: String?,
+    val day: String?,
+    val img: Int?,
+    val tagName: String?,
+    val nameBook: String?,
+    val coverBook: Int?,
+    val authorBook: String?,
+    val qualification: Double,
+    val synopsis: String?,
+    val fechaEstreno: Date?,
+    val readingContent: String?
+) : Parcelable {
 
 
 
     constructor(parcel: Parcel) : this(
+        parcel.readInt(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -20,11 +34,13 @@ data class Books (val title: String?, val chapter: String?,
         parcel.readString(),
         parcel.readDouble(),
         parcel.readString(),
-        Date(parcel.readLong())
+        Date(parcel.readLong()),
+        parcel.readString()
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeValue(id)
         parcel.writeString(title)
         parcel.writeString(chapter)
         parcel.writeString(day)
@@ -36,6 +52,7 @@ data class Books (val title: String?, val chapter: String?,
         parcel.writeDouble(qualification)
         parcel.writeString(synopsis)
         parcel.writeLong(fechaEstreno?.time ?: 0)
+        parcel.writeString(readingContent)
     }
 
     override fun describeContents(): Int {

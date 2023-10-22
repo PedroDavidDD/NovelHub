@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/iv_card_img"
-        android:layout_width="352dp"
-        android:layout_height="504dp"
+        android:layout_width="@dimen/itemBooks_Lwidth"
+        android:layout_height="@dimen/itemBooks_Lheight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
