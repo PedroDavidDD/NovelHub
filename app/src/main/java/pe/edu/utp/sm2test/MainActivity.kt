@@ -20,6 +20,7 @@ import pe.edu.utp.sm2test.Fragments.BottomNavigation.NewsFragment
 import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.ExtensionFunctions.setAlertMessage
 import pe.edu.utp.sm2test.ExtensionFunctions.setTextColorRes
+import pe.edu.utp.sm2test.Fragments.DetailsBookFragment
 import pe.edu.utp.sm2test.Fragments.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.Fragments.ToolbarNav.Filter.TagsFragment
@@ -137,18 +138,22 @@ class MainActivity : AppCompatActivity() {
             book.title.toString().lowercase().contains(queryText, ignoreCase = true)
         }
 
+        val bundle = Bundle()
+        bundle.putString("filteredQueryText", queryText)
 
         if (filteredList.isEmpty()) {
             // Si filteredList está vacío, restaura la lista original
-            filterFragment.setFilterBookList( BookProvider.booksList.shuffled().take(4).toMutableList() )
+
+            bundle.putParcelableArrayList("filteredBookList", ArrayList(BookProvider.booksList.shuffled().take(4)))
             // errorMessageTextView
             errorMessageTextView.setTextColorRes(R.color.black, R.color.md_theme_light_primary)
             errorMessageTextView.setAlertMessage("Libro no encontrado, te recomendamos los siguientes", 4000)
         } else {
             // Si filteredList no está vacío, establece la lista filtrada
-            filterFragment.setFilterBookList(filteredList.toMutableList())
+            bundle.putParcelableArrayList("filteredBookList", ArrayList(filteredList))
         }
 
+        filterFragment.arguments = bundle
         supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
     }
 
