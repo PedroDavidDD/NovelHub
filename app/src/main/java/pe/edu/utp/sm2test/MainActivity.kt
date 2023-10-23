@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val bundle = Bundle()
-        bundle.putString("filteredQueryText", queryText)
+//        bundle.putString("filteredQueryText", queryText)
 
         if (filteredList.isEmpty()) {
             // Si filteredList está vacío, restaura la lista original
