@@ -35,13 +35,12 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
 
         holder.itemView.setOnClickListener {
 
-            val bookFragment= DetailsBookFragment()
-            val bundle= Bundle()
+            val detailsBookFragment = DetailsBookFragment()
+            val bundle = Bundle()
+            bundle.putInt("idBook", book.id)
+            detailsBookFragment.arguments = bundle
 
-            bundle.putInt("idLibro", book.id)
-            bookFragment.arguments = bundle
-
-            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  bookFragment, true)
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  detailsBookFragment, true)
 
 
         }

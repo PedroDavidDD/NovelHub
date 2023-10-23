@@ -29,7 +29,7 @@ class DetailsBookFragment : Fragment() {
 
         val rootView = inflater.inflate(R.layout.fragment_book_details, container, false)
 
-        val queryText = arguments?.getInt("idLibro")
+        val queryText = arguments?.getInt("idBook")
 
 
         // Filtra la lista de libros por nombre Libro

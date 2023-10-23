@@ -1,20 +1,26 @@
 package pe.edu.utp.sm2test
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.textclassifier.SelectionEvent
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.setViewTreeOnBackPressedDispatcherOwner
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.NewsFragment
 import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.ExtensionFunctions.setAlertMessage
 import pe.edu.utp.sm2test.ExtensionFunctions.setTextColorRes
+import pe.edu.utp.sm2test.Fragments.DetailsBookFragment
 import pe.edu.utp.sm2test.Fragments.ToolbarNav.Filter.FilterFragment
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.Fragments.ToolbarNav.Filter.TagsFragment
@@ -29,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private var homeFragment: HomeFragment = HomeFragment()
     private var filterFragment: FilterFragment = FilterFragment()
 
+    private lateinit var errorMessageTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,8 +43,6 @@ class MainActivity : AppCompatActivity() {
         //Log.d("libro", BookProvider.booksList.toString())
         // Inicializa los datos y componentes
         initialComponents()
-        // Datos del Toolbar
-        getSettingsToolbar()
 
         // Reemplazar fragmento por defecto
         supportFragmentManager.replaceFragment(R.id.frame_layout,  homeFragment, true)
@@ -63,18 +68,41 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.replaceFragment(R.id.frame_layout,  MyNovelsFragment(), true)
                 }
             }
+
         }
 
     }
 
     private fun getSettingsToolbar(){
+        setSupportActionBar(toolbar)
+        val actionBar = supportActionBar
+        actionBar?.title = "NovelHub"
+
+        // Configurar la barra de acción y habilitar el botón de retroceso
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_ios_24)
+
+        setColorBottomNavigationView()
+    }
+
+    private fun setColorBottomNavigationView() {
+        var selectedColor = ContextCompat.getColor(this, R.color.md_theme_light_primary)
+        var unselectedColor = ContextCompat.getColor(this, R.color.white)
+        var colorStateList = ColorStateList(
+            arrayOf(
+                intArrayOf(android.R.attr.state_checked), // Estado seleccionado
+                intArrayOf(-android.R.attr.state_checked)  // Estado no seleccionado
+            ),
+            intArrayOf( selectedColor, unselectedColor )
+        )
+        binding.bottomNavigationView.itemIconTintList = colorStateList
+        binding.bottomNavigationView.itemTextColor = colorStateList
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_nav_menu, menu)
         val searchItem = menu?.findItem(R.id.action_search)
         val searchView = searchItem?.actionView as SearchView
-
         // Configurar el Listener para el SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -86,14 +114,6 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 // Mientras escribes en el Buscador, aparecen los tags
                 supportFragmentManager.replaceFragment(R.id.frame_layout,  TagsFragment(), true)
-
-                if (newText.isNullOrEmpty()) {
-                    // El texto está vacío o nulo, puedes realizar alguna acción aquí
-                    supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
-                    // El texto está vacío, restaura la lista original en el fragmento HomeFragment
-                    filterFragment.setFilterBookList(BookProvider.booksList)
-                }
-
                 return true
             }
         })
@@ -106,7 +126,6 @@ class MainActivity : AppCompatActivity() {
         // Verificar si el query es nulo o muy corto
         if (query.isNullOrEmpty() || query.length < 3) {
             // errorMessageTextView
-            val errorMessageTextView = findViewById<TextView>(R.id.tvErrorMessage)
             errorMessageTextView.setTextColorRes(R.color.black, R.color.md_theme_light_primary)
             errorMessageTextView.setAlertMessage("Mínimo 3 caracteres", 3000)
 
@@ -114,19 +133,28 @@ class MainActivity : AppCompatActivity() {
         }
 
         val queryText = query.toString().trim().lowercase()
-        // Filtra la lista de libros por título
+
         val filteredList = BookProvider.booksList.filter { book ->
             book.title.toString().lowercase().contains(queryText, ignoreCase = true)
         }
-        //[Encontró algo?]
-        supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
+
+        val bundle = Bundle()
+//        bundle.putString("filteredQueryText", queryText)
+
         if (filteredList.isEmpty()) {
             // Si filteredList está vacío, restaura la lista original
-            filterFragment.setFilterBookList( BookProvider.booksList )
+
+            bundle.putParcelableArrayList("filteredBookList", ArrayList(BookProvider.booksList.shuffled().take(4)))
+            // errorMessageTextView
+            errorMessageTextView.setTextColorRes(R.color.black, R.color.md_theme_light_primary)
+            errorMessageTextView.setAlertMessage("Libro no encontrado, te recomendamos los siguientes", 4000)
         } else {
             // Si filteredList no está vacío, establece la lista filtrada
-            filterFragment.setFilterBookList(filteredList.toMutableList())
+            bundle.putParcelableArrayList("filteredBookList", ArrayList(filteredList))
         }
+
+        filterFragment.arguments = bundle
+        supportFragmentManager.replaceFragment(R.id.frame_layout,  filterFragment, true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -144,6 +172,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+            android.R.id.home-> {
+                onBackPressed()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -152,8 +184,9 @@ class MainActivity : AppCompatActivity() {
     private fun initialComponents() {
         toolbar = binding.toolbar1
         // Configurar Toolbar
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = "NovelHub"
+        getSettingsToolbar()
+        errorMessageTextView = binding.tvErrorMessage
+        errorMessageTextView.bringToFront()
 
     }
 
