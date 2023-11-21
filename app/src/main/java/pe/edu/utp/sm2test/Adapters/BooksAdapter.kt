@@ -7,13 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
 import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
-import pe.edu.utp.sm2test.Fragments.BookFragment
 import pe.edu.utp.sm2test.Fragments.DetailsBookFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
@@ -29,6 +28,7 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
         val book= bookList[position]
         holder.nameBook.text= book.nameBook
         holder.nameAuthor.text= book.authorBook
+        holder.qualification.rating= book.qualification
 
         val img = book.coverBook
         holder.coverBook.picassoLoadImageLocal(img!!, 0, 180)
@@ -54,6 +54,7 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
         var coverBook: ImageView = itemView.findViewById(R.id.ivPortadaLibro)
         var nameBook: TextView= itemView.findViewById(R.id.tvNombreLibro)
         var nameAuthor: TextView= itemView.findViewById(R.id.tvNombreAutor)
+        var qualification: RatingBar= itemView.findViewById(R.id.elpRbCalificacion)
 
     }
 }

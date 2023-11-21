@@ -14,7 +14,7 @@ data class Books(
     val nameBook: String?,
     val coverBook: Int?,
     val authorBook: String?,
-    val qualification: Double,
+    val qualification: Float,
     val synopsis: String?,
     val fechaEstreno: Date?,
     val readingContent: String?
@@ -32,7 +32,7 @@ data class Books(
         parcel.readString(),
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
-        parcel.readDouble(),
+        parcel.readFloat(),
         parcel.readString(),
         Date(parcel.readLong()),
         parcel.readString()
@@ -49,7 +49,7 @@ data class Books(
         parcel.writeString(nameBook)
         parcel.writeValue(coverBook)
         parcel.writeString(authorBook)
-        parcel.writeDouble(qualification)
+        parcel.writeFloat(qualification)
         parcel.writeString(synopsis)
         parcel.writeLong(fechaEstreno?.time ?: 0)
         parcel.writeString(readingContent)

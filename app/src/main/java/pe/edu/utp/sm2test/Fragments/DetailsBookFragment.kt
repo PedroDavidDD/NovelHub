@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_book_details.view.elpRbCalificacion
 import kotlinx.android.synthetic.main.fragment_book_details.view.ivPortadaLibro
 import kotlinx.android.synthetic.main.fragment_book_details.view.tvDescripcion
 import kotlinx.android.synthetic.main.fragment_book_details.view.tvNombreAutor
@@ -46,6 +47,7 @@ class DetailsBookFragment : Fragment() {
             rootView.tvNombreLibro.text = filteredList.nameBook
             rootView.tvNombreAutor.text = filteredList.authorBook
             rootView.tvDescripcion.text = filteredList.synopsis
+            rootView.elpRbCalificacion.rating= filteredList.qualification
         }
 
         return rootView

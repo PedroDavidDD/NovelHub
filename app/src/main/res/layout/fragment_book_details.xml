@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/ivPortadaLibro"
-        android:src="@drawable/fantasia"
         android:layout_width="0dp"
         android:layout_height="220dp"
+        android:src="@drawable/fantasia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,12 +22,15 @@
         style="@style/estiloRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:stepSize="0.1"
-        app:layout_constraintStart_toStartOf="parent"
+        android:numStars="5"
+        android:progressTint="@color/yellow"
+        android:rating="4"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPortadaLibro"
-  />
+        app:layout_constraintBottom_toTopOf="@id/tvNombreLibro"/>
 
 
     <TextView
@@ -35,9 +38,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

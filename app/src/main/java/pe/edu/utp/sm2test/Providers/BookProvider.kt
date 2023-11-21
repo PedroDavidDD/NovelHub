@@ -20,7 +20,7 @@ class BookProvider {
                     "The beginning after the end 1",
                     R.drawable.tbate,
                     "TurtleMe",
-                    3.5,
+                    2.5f,
                     "El Rey Gris posee una fuerza, una riqueza y un prestigio sin igual en un mundo gobernado por la habilidad marcial. Sin embargo, la soledad persigue de cerca a aquellos que poseen un gran poder. Bajo el glamuroso exterior de un poderoso rey se esconde la cáscara de un hombre, carent ",
                     parseDate("10/09/2023"),
                     "Era de noche nuevamente. La Posada Waystone yacía en silencio, y era un silencio de tres partes."
@@ -35,7 +35,7 @@ class BookProvider {
                     "The Name of the Wind",
                     R.drawable.thenameofthewind,
                     "Patrick Rothfuss",
-                    3.5,
+                    5f,
                     "A young man chronicles his life as a renowned magician and musician.",
                     parseDate("10/09/2007"),
                     "Era de noche nuevamente. La Posada Waystone yacía en silencio, y era un silencio de tres partes."
@@ -50,7 +50,7 @@ class BookProvider {
                     "The Hobbit",
                     R.drawable.thehobbit,
                     ".R.R. Tolkien",
-                    3.5,
+                    5f,
                     "Bilbo Baggins embarks on a quest to reclaim a treasure from a dragon.",
                     parseDate("10/09/1937"),
                     "En un agujero en el suelo vivía un hobbit. No era un agujero desagradable, sucio y húmedo, lleno de extremos de gusanos y un olor viscoso, ni tampoco un agujero seco, desnudo y arenoso sin nada en lo que sentarse o comer: era un agujero de hobbit, y eso significa comodidad."
@@ -65,7 +65,7 @@ class BookProvider {
                     "Harry Potter and the Sorcerer's Stone",
                     R.drawable.harrypotter,
                     "J.K. Rowling",
-                    3.5,
+                    3f,
                     "A young boy discovers he is a wizard and enrolls in a magical school.",
                     parseDate("10/09/1997"),
                     "El señor y la señora Dursley, del número cuatro de Privet Drive, estaban orgullosos de decir que eran perfectamente normales, gracias por preguntar."
@@ -80,7 +80,7 @@ class BookProvider {
                     "A Game of Thrones",
                     R.drawable.agameofthrones,
                     "George R.R. Martin",
-                    3.5,
+                    3f,
                     "Noble families vie for control of the Iron Throne in a fantasy world.",
                     parseDate("10/09/1996"),
                     "Bran pensó en ello."
@@ -95,7 +95,7 @@ class BookProvider {
                     "The Wise Man's Fear",
                     R.drawable.thewisemanfear,
                     "Patrick Rothfuss",
-                    3.5,
+                    3f,
                     "The protagonist continues his education at the magical university and faces various challenges.",
                     parseDate("10/09/2011"),
                     "Me llamo Kvothe, se pronuncia casi igual que 'quothe'. Los nombres son importantes ya que te dicen mucho sobre una persona."
@@ -110,7 +110,7 @@ class BookProvider {
                     "Salem’s Lot",
                     R.drawable.salemslot,
                     "Stephen King",
-                    3.5,
+                    2f,
                     "This story of a small town overrun by vampires is deliciously chilling. As residents experience a growing list of strange encounters and start putting the pieces together, you’ll feel yourself tensing up in anticipation of the final reveal and confrontation.",
                     parseDate("10/09/1975"),
                     "Casi todos pensaban que el hombre y el niño eran padre e hijo."
@@ -125,7 +125,7 @@ class BookProvider {
                     "Those Across the River",
                     R.drawable.thoseacrosstheriver,
                     "Christopher Buehlman",
-                    3.5,
+                    4f,
                     "In 1935, a professor fleeing scandal moves with his wife to a family home in Georgia, located near the ruins of a plantation that his ancestors owned. Every month, in a strange, sacrificial ritual, the townspeople adorn two pigs with flower garlands and send them across the river. The animals never return.",
                     parseDate("10/09/1975"),
                     "Era un coche de policía sin marcar."
@@ -140,7 +140,7 @@ class BookProvider {
                     "The Exorcist",
                     R.drawable.thexorcist,
                     "William Peter Blatty",
-                    3.5,
+                    3f,
                     "Descriptions of the child’s erratic behavior, which includes spitting and screaming obscenities, build to a crescendo as her mother desperately hunts for an exorcist. If you’ve seen the classic movie adaptation, you have an idea of just how scary this situation gets … but the book is arguably even more terrifying.",
                     parseDate("10/09/2011"),
                     "Descripciones del comportamiento errático del niño, que incluyen escupir y gritar obscenidades, se desarrollan hasta un clímax mientras su madre busca desesperadamente un exorcista. Si has visto la adaptación cinematográfica clásica, tienes una idea de"
@@ -155,7 +155,7 @@ class BookProvider {
                     "The Blazing World",
                     R.drawable.theblazingworld,
                     "Margaret Cavendish",
-                    3.5,
+                    1f,
                     "Cavendish's utopian tale follows the adventures of a kidnapped woman, who travels to another world run by part-humans, part animals - fox men, fish men, geese men, the list goes on. As she is a very beautiful woman, she becomes their Empress, and organises an an almighty invasion of her own world, complete with literal fire(stones) raining from the sky.",
                     parseDate("10/09/1666"),
                     "En un tiempo lejano, cuando el mundo estaba lleno de maravillas y los seres humanos tenían el poder de mover los elementos y usar la magia, existía un continente habitado por cuatro razas principales: los humanos, los orcos, los elfos y los enanos."
@@ -170,7 +170,7 @@ class BookProvider {
                     "Frankenstein",
                     R.drawable.thefrankenstein,
                     "Mary Shelley",
-                    3.5,
+                    3f,
                     "Mary Shelley started writing classic gothic thriller Frankenstein when she was 18 years old. Two centuries later, it is a major ancestor of both the science fiction and horror genres, tackling huge themes like the nature of life and death, immortality and genetic engineering. It is a pro-science novel that at its heart shows Dr Frankenstein as the callous fiend of the story, who created a being and was not willing to accept responsibility for his actions. In an age where the space between technical life and death is narrower than ever, and scientists are playing with the makeup of what makes us humans, Frankenstein can still teach an important lesson: just because you can, doesn't mean you should.",
                     parseDate("10/09/1818"),
                     "En 1935, un profesor que huye de un escándalo se muda con su esposa a una casa familiar en Georgia, ubicada cerca de las ruinas de una plantación que perteneció a sus antepasados. Cada mes, en un extraño ritual de sacrificio, los habitantes del pueblo adornan dos cerdos con guirnaldas de flores y los envían al otro lado del río. Los animales nunca regresan.",
@@ -185,7 +185,7 @@ class BookProvider {
                     "The Stars My Destination",
                     R.drawable.thestarsmydestination,
                     "Alfred Bester",
-                    3.5,
+                    5f,
                     "This landmark novel begins with a simple proposition – what if humans could teleport? – and sprawls into a tale of rebirth and vengeance that winds across the Solar System: The Count of Monte Cristo for the interstellar age. First published as Tiger! Tiger! in the UK, named after the William Blake poem, it follows Gully Foyle – a violent, uneducated brute who spends six months marooned in deep space, and the rest of the book seeking retribution for it.",
                     parseDate("10/09/1957"),
                     "En 1935, un profesor que huye de un escándalo se muda con su esposa a una casa familiar en Georgia, ubicada cerca de las ruinas de una plantación que perteneció a sus antepasados. Cada mes, en un extraño ritual de sacrificio, los habitantes del pueblo adornan dos cerdos con guirnaldas de flores y los envían al otro lado del río. Los animales nunca regresan.",
@@ -201,7 +201,7 @@ class BookProvider {
                     "Don Quixote",
                     R.drawable.donquixote,
                     "Miguel de Cervantes",
-                    3.5,
+                    5f,
                     "Regarded as one of the greatest works in literature, Don Quixote recounts the adventures of Alonso Quixano: a middle-aged man so obsessed with chivalric books that he decides to imitate them and become a knight-errant. So begins his journey to find a faithful squire, save damsels in distress, and fight windmills.",
                     parseDate("10/09/1957"),
                     "El primer lunes de abril de 1625, el pueblo de Meung, donde se había apostado el ejército del rey, no estaba tan ocupado como un día de mercado."
@@ -216,7 +216,7 @@ class BookProvider {
                     "The Three Musketeers",
                     R.drawable.thethreemusketeers,
                     "Alexandre Dumas",
-                    3.5,
+                    2f,
                     "In this classic by Dumas, a young man named d’Artagnan joins the Musketeers of the Guard. In doing so, he befriends Athos, Porthos, and Aramis — the King’s most celebrated musketeers — and embarks on a journey of his own.",
                     parseDate("10/09/1957"),
                     "El antiguo capitán del barco, que llevaba un cinturón de cuero de piel de cerdo alrededor de su cuerpo, salió al baluarte, volvió a encender su pipa y se quedó observando fijamente el oscuro horizonte."
@@ -231,7 +231,7 @@ class BookProvider {
                     "Treasure Island",
                     R.drawable.treasureisland,
                     "Robert Louis Stevenson",
-                    3.5,
+                    3f,
                     "Written by Scottish author Robert Louis Stevenson, this story of “buccaneers and buried gold” launched a million tropes of treasure maps, sea chests, Black Spots, and deserted islands.",
                     parseDate("10/09/1957"),
                     "El hombre llamado Ove se asomó por la ventana. La calle estaba desierta y desolada."
@@ -245,7 +245,7 @@ class BookProvider {
                     "A Man Called Ove",
                     R.drawable.amancalledove,
                     "Fredrik Backman",
-                    3.5,
+                    3f,
                     "Ove is almost certainly the grumpiest man you will ever meet He thinks himself surrounded by idiots joggers neighbours who cant reverse a trailer properly and shop assistants who talk in code But isnt it rare these days to find such oldfashioned clarity of belief and deed Such unswerving conviction about what the world should be and a lifelong dedication to making it just so",
                     parseDate("10/09/1957"),
                     "El hombre llamado Ove se asomó por la ventana. La calle estaba desierta y desolada."
@@ -259,7 +259,7 @@ class BookProvider {
                     "Beach Read",
                     R.drawable.beachread,
                     "Emily Henry",
-                    3.5,
+                    4f,
                     "Augustus Everett is an acclaimed author of literary fiction. January Andrews writes bestselling romance. When she pens a happily ever after, he kills off his entire cast. They're polar opposites. In fact, the only thing they have in common is that for the next three months, they're living in neighboring beach houses, broke, and bogged down with writer's block. Until, one hazy evening, one thing leads to another and they strike a deal designed to force them out of their creative ruts: Augustus will spend the summer writing something happy, and January will pen the next Great American Novel. She'll take him on field trips worthy of any rom-com montage, and he'll take her to interview surviving members of a backwoods death cult (obviously). Everyone will finish a book and no one will fall in love. Really.\n",
                     parseDate("10/09/1957"),
                     "La carretera seguía durante millas, una larga cinta de asfalto en medio de una carretera abandonada."
@@ -273,7 +273,7 @@ class BookProvider {
                     "The Boy, the Mole, the Fox and the Horse",
                     R.drawable.theboythemolethefox,
                     "Charlie Mackesy",
-                    3.5,
+                    4f,
                     "Charlie Mackesy offers inspiration and hope in uncertain times in this beautiful book, following the tale of a curious boy, a greedy mole, a wary fox and a wise horse who find themselves together in sometimes difficult terrain, sharing their greatest fears and biggest discoveries about vulnerability, kindness, hope, friendship and love. The shared adventures and important conversations between the four friends are full of life lessons that have connected with readers of all ages. ",
                     parseDate("10/09/1957"),
                     "Estaba empezando a oscurecer y comenzaba a llover, y el viento rugía en los árboles."
@@ -287,7 +287,7 @@ class BookProvider {
                     "Don Quixote",
                     R.drawable.donquixote,
                     "Miguel de Cervantes",
-                    3.5,
+                    3f,
                     "Regarded as one of the greatest works in literature, Don Quixote recounts the adventures of Alonso Quixano: a middle-aged man so obsessed with chivalric books that he decides to imitate them and become a knight-errant. So begins his journey to find a faithful squire, save damsels in distress, and fight windmills.",
                     parseDate("10/09/1957"),
                     "En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor."
@@ -301,7 +301,7 @@ class BookProvider {
                     "The Three Musketeers",
                     R.drawable.thethreemusketeers,
                     "Alexandre Dumas",
-                    3.5,
+                    3f,
                     "In this classic by Dumas, a young man named d’Artagnan joins the Musketeers of the Guard. In doing so, he befriends Athos, Porthos, and Aramis — the King’s most celebrated musketeers — and embarks on a journey of his own.",
                     parseDate("10/09/1957"),
                     "El primer lunes de abril de 1625, el pueblo de Meung, donde se había apostado el ejército del rey, no estaba tan ocupado como un día de mercado."
@@ -315,7 +315,7 @@ class BookProvider {
                     "Treasure Island",
                     R.drawable.treasureisland,
                     "Robert Louis Stevenson",
-                    3.5,
+                    3f,
                     "Written by Scottish author Robert Louis Stevenson, this story of “buccaneers and buried gold” launched a million tropes of treasure maps, sea chests, Black Spots, and deserted islands.",
                     parseDate("10/09/1957"),
                     "El antiguo capitán del barco, que llevaba un cinturón de cuero de piel de cerdo alrededor de su cuerpo, salió al baluarte, volvió a encender su pipa y se quedó observando fijamente el oscuro horizonte."
