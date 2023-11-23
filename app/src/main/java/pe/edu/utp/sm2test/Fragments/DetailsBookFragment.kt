@@ -60,8 +60,14 @@ class DetailsBookFragment : Fragment() {
 
         btnRead= rootView.findViewById(R.id.btnLeer)
         btnRead.setOnClickListener {
-            val fragment = ReadBooksFragment()
-            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  fragment, true)
+            val readBooksFragment = ReadBooksFragment()
+            val bundle = Bundle()
+            if (queryText != null) {
+                bundle.putInt("idBook", queryText)
+            }
+            readBooksFragment.arguments = bundle
+
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  readBooksFragment, true)
         }
 
         ivShare= rootView!!.findViewById(R.id.ivCompartir)
