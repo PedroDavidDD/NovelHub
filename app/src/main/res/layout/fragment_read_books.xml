@@ -30,19 +30,23 @@
             tools:layout_editor_absoluteY="58dp"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/tvReadingContent"
-            android:layout_width="349dp"
-            android:layout_height="501dp"
+        <ScrollView
+            android:layout_width="336dp"
+            android:layout_height="521dp"
             android:layout_marginTop="40dp"
-            android:text="@string/hello_blank_fragment"
-            android:textSize="25dp"
-            android:gravity="start|top"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvReadingTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvReadingTitle">
 
+            <TextView
+                android:id="@+id/tvReadingContent"
+                android:layout_width="349dp"
+                android:layout_height="700dp"
+                android:gravity="start|top"
+                android:text="@string/hello_blank_fragment"
+                android:textSize="25dp" />
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
