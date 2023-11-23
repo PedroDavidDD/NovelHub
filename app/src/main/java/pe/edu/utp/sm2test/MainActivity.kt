@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.btnExplorar -> {
                     supportFragmentManager.replaceFragment(R.id.frame_layout,  NewsFragment(), true)
                 }
-                R.id.btnMisSeries -> {
+                /*R.id.btnMisSeries -> {
                     supportFragmentManager.replaceFragment(R.id.frame_layout,  MyNovelsFragment(), true)
-                }
+                }*/
             }
 
         }
@@ -164,7 +164,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_settings -> {
-                Toast.makeText(this, "action_settings ${ BookProvider.booksList.size }", Toast.LENGTH_SHORT).show()
+                supportFragmentManager.replaceFragment(R.id.frame_layout,  MyNovelsFragment(), true)
                 true
             }
             R.id.action_account -> {
