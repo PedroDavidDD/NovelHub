@@ -1,10 +1,14 @@
 package pe.edu.utp.sm2test.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_book_details.view.elpRbCalificacion
@@ -14,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_book_details.view.tvNombreAutor
 import kotlinx.android.synthetic.main.fragment_book_details.view.tvNombreLibro
 import pe.edu.utp.sm2test.Adapters.BooksAdapter
 import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
+import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.Providers.BookProvider
 import pe.edu.utp.sm2test.R
@@ -22,6 +27,8 @@ class DetailsBookFragment : Fragment() {
 
 
     private var bookAdapter: BooksAdapter? = null
+    private lateinit var btnRead: Button
+    private lateinit var ivShare: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +55,23 @@ class DetailsBookFragment : Fragment() {
             rootView.tvNombreAutor.text = filteredList.authorBook
             rootView.tvDescripcion.text = filteredList.synopsis
             rootView.elpRbCalificacion.rating= filteredList.qualification
+
+        }
+
+        btnRead= rootView.findViewById(R.id.btnLeer)
+        btnRead.setOnClickListener {
+            val fragment = ReadBooksFragment()
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  fragment, true)
+        }
+
+        ivShare= rootView!!.findViewById(R.id.ivCompartir)
+        ivShare.setOnClickListener {
+            val share = Intent.createChooser(Intent().apply {
+                action = Intent.ACTION_SEND
+
+                putExtra(Intent.EXTRA_TEXT, "Compartiendo link del libro")
+            }, null)
+            startActivity(share)
         }
 
         return rootView

@@ -65,4 +65,5 @@
     <color name="md_theme_dark_outlineVariant">#534342</color>
     <color name="md_theme_dark_scrim">#000000</color>
     <color name="yellow">#FFC107</color>
+    <color name="gris">#A40B0A0A</color>
 </resources>
