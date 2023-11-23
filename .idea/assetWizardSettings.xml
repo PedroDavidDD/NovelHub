@@ -80,7 +80,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\PEDRO\OneDrive - Universidad Tecnologica del Peru\Icons\vampiro.png" />
+                                                <entry key="imagePath" value="C:\Users\PEDRO\Downloads\config.png" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -113,7 +113,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundLayerName" value="ic_launcher_vampire" />
+                                      <entry key="foregroundLayerName" value="aaa_config" />
                                       <entry key="previewDensity" value="MEDIUM" />
                                     </map>
                                   </option>

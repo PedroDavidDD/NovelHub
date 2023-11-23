@@ -7,10 +7,32 @@
     tools:context=".Fragments.BottomNavigation.MyNovelsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MyNovelsFragment" />
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/ivPortadaLibro"
+            android:layout_width="362dp"
+            android:layout_height="368dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/aaa_config"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.268" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="355dp"
+            android:layout_height="53dp"
+            android:text="Mantenimiento..."
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/ivPortadaLibro"
+            app:layout_constraintStart_toStartOf="@+id/ivPortadaLibro"
+            app:layout_constraintTop_toBottomOf="@+id/ivPortadaLibro" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
