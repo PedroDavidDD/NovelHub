@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_book_details.view.elpRbCalificacion
 import kotlinx.android.synthetic.main.fragment_book_details.view.ivPortadaLibro
 import kotlinx.android.synthetic.main.fragment_book_details.view.tvDescripcion
@@ -72,14 +70,15 @@ class DetailsBookFragment : Fragment() {
 
         ivShare= rootView!!.findViewById(R.id.ivCompartir)
         ivShare.setOnClickListener {
-            val share = Intent.createChooser(Intent().apply {
+            val bookId = filteredList?.id
+            val sendIntent = Intent().apply {
                 action = Intent.ACTION_SEND
-
-                putExtra(Intent.EXTRA_TEXT, "Compartiendo link del libro")
-            }, null)
-            startActivity(share)
+                putExtra(Intent.EXTRA_TEXT, "http://www.NovelHUB.com/libros/$bookId")
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
         }
-
         return rootView
     }
 
