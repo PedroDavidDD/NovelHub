@@ -24,7 +24,6 @@ class HomeFragment : Fragment() {
     private lateinit var listBooks: RecyclerView
     private  var listBookAdapter: ListBooksAdapter? = null
     private val db = FirebaseFirestore.getInstance()
-    private val dateFormat = SimpleDateFormat("d 'de' MMMM 'de' yyyy, h:mm:ss a z", Locale.getDefault())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,12 +82,4 @@ class HomeFragment : Fragment() {
             }
     }
 
-    private fun parseDate(dateString: String): Date? {
-        return try {
-            dateFormat.parse(dateString)
-        } catch (e: ParseException) {
-            Log.e("DateParsing", "Error al convertir la fecha", e)
-            null
-        }
-    }
 }

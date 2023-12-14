@@ -98,6 +98,8 @@ class BookProvider {
                     R.drawable.agameofthrones,
                     "George R.R. Martin",
                     3f,
+                    "Nunca he podido creer en las historias sobre ‘la luz al final del túnel’ de las que tantos hablaban donde después de vivir una experiencia cercana a la muerte, las personas despertaban asustada  empapadas en un sudor frío, para luego exclamar: “¡He visto la luz!",
+                    parseDate("10/09/1996"),
                     "Nunca he podido creer en las historias sobre ‘la luz al final del túnel’ de las que tantos hablaban,\n" +
                             "donde después de vivir una experiencia cercana a la muerte, las personas despertaban asustadas,\n" +
                             "empapadas en un sudor frío, para luego exclamar: “¡He visto la luz!”.\n" +
@@ -121,8 +123,6 @@ class BookProvider {
                             "Ja, ja... No pensemos mucho más sobre ello. Al evaluar la situación racionalmente, como debía\n" +
                             "hacer todo rey, notaba que, estuviera donde estuviera, podía entender su idioma. Y eso siempre era\n" +
                             "una buena señal.",
-                    parseDate("10/09/1996"),
-                    "Bran pensó en ello."
                 ),
                 Books(
                     5,

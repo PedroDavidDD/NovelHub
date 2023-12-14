@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                 "coverBook" to book.coverBook,
                 "day" to book.day,
                 "fechaEstreno" to book.fechaEstreno,
+                "id" to book.id,
                 "img" to book.img,
                 "nameBook" to book.nameBook,
                 "qualification" to book.qualification,
