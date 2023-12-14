@@ -1,5 +1,6 @@
 package pe.edu.utp.sm2test
 
+import android.content.ClipData.Item
 import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
@@ -7,14 +8,18 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.textclassifier.SelectionEvent
+import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.setViewTreeOnBackPressedDispatcherOwner
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.NewsFragment
@@ -28,6 +33,13 @@ import pe.edu.utp.sm2test.Fragments.ToolbarNav.Filter.TagsFragment
 import pe.edu.utp.sm2test.databinding.ActivityMainBinding
 import pe.edu.utp.sm2test.login.LoginActivity
 
+enum class ProviderType {
+    BASIC,
+    GOOGLE,
+    FACEBOOK,
+    GITHUB
+}
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -38,6 +50,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var errorMessageTextView: TextView
 
+    // registro simple
+    private lateinit var provider: String
+    private lateinit var tvEmail: TextView
+
+    private lateinit var nvPrincipal: NavigationView
+
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +64,19 @@ class MainActivity : AppCompatActivity() {
         //Log.d("libro", BookProvider.booksList.toString())
         // Inicializa los datos y componentes
         initialComponents()
+
+        /*this.nvPrincipal = findViewById(R.id.toolbar1)*/
+
+        val bundle = intent.extras
+        val email = bundle?.getString("email")
+        provider = bundle?.getString("provider").toString()
+        val name = bundle?.getString("name")
+        val imagenPerfil = bundle?.getString("picture")
+
+        if (!email.isNullOrEmpty()) {
+            tvEmail.visibility = View.VISIBLE
+        }
+        setup(email ?: "", provider ?: "", imagenPerfil ?:  "", name ?: "")
 
         // Reemplazar fragmento por defecto
         supportFragmentManager.replaceFragment(R.id.frame_layout,  homeFragment, true)
@@ -56,6 +87,22 @@ class MainActivity : AppCompatActivity() {
 
         // Acciones con los botones
         getBtnListeners()
+
+    }
+
+    private fun setup(email: String, provider: String, imagenPerfil: String, name: String){
+
+        title = "API Clima - Login [Simple-Facebook]"
+        tvEmail.text = "Bienvenido: ${email}"
+
+        /*val navHeader = nvPrincipal.getHeaderView(0)*/
+        /*val perfil = navHeader.findViewById<Item>(R.id.action_account)
+
+        Log.d("imagen", "URL: $imagenPerfil")
+        if (imagenPerfil.isNotEmpty()) {
+            Picasso.get().load(imagenPerfil).into(perfil)
+        }*/
+
 
     }
 
@@ -223,6 +270,8 @@ class MainActivity : AppCompatActivity() {
         getSettingsToolbar()
         errorMessageTextView = binding.tvErrorMessage
         errorMessageTextView.bringToFront()
+
+        tvEmail = findViewById(R.id.tvEmail)
 
     }
 
