@@ -42,7 +42,6 @@ class ListNewsBooksAdapter(val context: Context, var list: MutableList<Books>, v
         holder.date.text = formattedDate.uppercase()
 
         holder.date.setOnClickListener {
-
             val detailsBookFragment = DetailsBookFragment()
             val bundle = Bundle()
             bundle.putInt("idBook", book.id)

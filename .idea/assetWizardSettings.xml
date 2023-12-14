@@ -80,7 +80,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\PEDRO\OneDrive - Universidad Tecnologica del Peru\Icons\vampiro.png" />
+                                                <entry key="imagePath" value="C:\Users\PEDRO\Downloads\iconBook.jpeg" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -113,7 +113,6 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundLayerName" value="ic_launcher_vampire" />
                                       <entry key="previewDensity" value="MEDIUM" />
                                     </map>
                                   </option>
@@ -313,7 +312,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/arrow_back_ios/baseline_arrow_back_ios_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/share/baseline_share_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -324,7 +323,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="baseline_arrow_back_ios_24" />
+                            <entry key="outputName" value="icon_share" />
                             <entry key="sourceFile" value="D:\Software\ProyectosAndroidStudio\NovelHub\app\src\main\img\ icon _sun_.svg" />
                           </map>
                         </option>

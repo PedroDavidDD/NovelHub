@@ -4,6 +4,8 @@
     <color name="seed">#C0001E</color>
     <color name="black">#000</color>
     <color name="white">#fff</color>
+    <color name="md_theme_readBook">#FFEFD3</color>
+    <color name="md_theme_light_inverseOnSurface">#FFEFD3</color>
     <color name="md_theme_light_primary">#FF2E3A</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#FFDAD7</color>
@@ -27,7 +29,6 @@
     <color name="md_theme_light_surfaceVariant">#F5DDDB</color>
     <color name="md_theme_light_onSurfaceVariant">#534342</color>
     <color name="md_theme_light_outline">#857371</color>
-    <color name="md_theme_light_inverseOnSurface">#FFEFD3</color>
     <color name="md_theme_light_inverseSurface">#3F2E00</color>
     <color name="md_theme_light_inversePrimary">#FFB3AE</color>
     <color name="md_theme_light_shadow">#000000</color>
@@ -64,4 +65,6 @@
     <color name="md_theme_dark_surfaceTint">#FFB3AE</color>
     <color name="md_theme_dark_outlineVariant">#534342</color>
     <color name="md_theme_dark_scrim">#000000</color>
+    <color name="yellow">#FFC107</color>
+    <color name="gris">#A40B0A0A</color>
 </resources>

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import pe.edu.utp.sm2test.ExtensionFunctions.picassoLoadImageLocal
 import pe.edu.utp.sm2test.ExtensionFunctions.replaceFragment
 import pe.edu.utp.sm2test.Fragments.BookFragment
+import pe.edu.utp.sm2test.Fragments.DetailsBookFragment
 import pe.edu.utp.sm2test.Models.Books
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.Fragments.ReadBooksFragment
@@ -41,13 +42,11 @@ class ListBooksAdapter(val context: Context, var list: MutableList<Books>, val l
 
         // Configurar el clic del botón para ver mas detalles
         holder.btnIr.setOnClickListener {
-//            Log.d("2+ id", book.id.toString())
-            val readBooksFragment = ReadBooksFragment()
+            val detailsBookFragment = DetailsBookFragment()
             val bundle = Bundle()
             bundle.putInt("idBook", book.id)
-            readBooksFragment.arguments = bundle
-
-            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  readBooksFragment, true)
+            detailsBookFragment.arguments = bundle
+            (context as AppCompatActivity).supportFragmentManager.replaceFragment(R.id.frame_layout,  detailsBookFragment, true)
         }
     }
 

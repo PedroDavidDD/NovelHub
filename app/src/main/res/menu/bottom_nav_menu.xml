@@ -15,11 +15,11 @@
         android:icon="@drawable/__icon__sun_"
         android:id="@+id/btnExplorar"
         />
-    <item
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Mis Series"
-        android:icon="@drawable/baseline_menu_24"
-        android:id="@+id/btnMisSeries"
-        />
+    <!-- <item
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:title="Mis Series"
+       android:icon="@drawable/baseline_menu_24"
+       android:id="@+id/btnMisSeries"
+       />-->
 </menu>

@@ -3,13 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.ReadBooksFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvReadingContent"
+    <ImageView
+        android:id="@+id/ivPortadaLibro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:scaleType="fitXY"
+        android:src="@color/md_theme_readBook" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvReadingTitle"
+            android:layout_width="347dp"
+            android:layout_height="71dp"
+            android:text="Titulo"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="58dp"
+            tools:ignore="MissingConstraints" />
+
+        <ScrollView
+            android:layout_width="336dp"
+            android:layout_height="521dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReadingTitle">
+
+            <TextView
+                android:id="@+id/tvReadingContent"
+                android:layout_width="349dp"
+                android:layout_height="700dp"
+                android:gravity="start|top"
+                android:text="@string/hello_blank_fragment"
+                android:textSize="25dp" />
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
