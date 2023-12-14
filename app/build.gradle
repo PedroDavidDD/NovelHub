@@ -65,5 +65,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
 
+    //Google
     implementation 'com.google.android.gms:play-services-auth:20.0.0'
 }

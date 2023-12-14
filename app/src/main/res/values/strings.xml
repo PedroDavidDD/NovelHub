@@ -25,4 +25,6 @@
     <string name="btn_news_card_title_go">14 SEPT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id_2">611565246160-p4u03759dgvhb5v22e3obn4ofgfhkdok.apps.googleusercontent.com</string>
+
 </resources>

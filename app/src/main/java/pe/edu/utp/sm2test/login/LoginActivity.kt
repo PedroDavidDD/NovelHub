@@ -7,19 +7,25 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
+import com.google.firebase.auth.GoogleAuthProvider
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.MainActivity
 import pe.edu.utp.sm2test.ProviderType
 
 class LoginActivity : AppCompatActivity(){
+    private val GOOGLE_SIGN_IN = 100
 
     private lateinit var btnLogin: Button
     private lateinit var etCorreo: EditText
     private lateinit var etContraseña: EditText
 
     private lateinit var btnRegistrar: Button
+    private lateinit var btnGoogle: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
@@ -29,6 +35,7 @@ class LoginActivity : AppCompatActivity(){
         val btnLogin = findViewById<Button>(R.id.buttonLogin)
 
         btnRegistrar = findViewById(R.id.btnRegistrar)
+        btnGoogle = findViewById(R.id.btnGoogle)
 
         btnLogin.setOnClickListener {
             if (etCorreo.text.isNotEmpty() && etContraseña.text.isNotEmpty()) {
@@ -58,6 +65,14 @@ class LoginActivity : AppCompatActivity(){
         botonRegresar.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+
+
+        btnGoogle.setOnClickListener {
+            val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id_2)).requestEmail().build()
+            val googleClient = GoogleSignIn.getClient(this, googleConf)
+            googleClient.signOut()
+            startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
         }
 
     }
@@ -98,4 +113,34 @@ class LoginActivity : AppCompatActivity(){
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(requestCode==GOOGLE_SIGN_IN){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+
+            try {
+                val account= task.getResult(ApiException::class.java)
+
+                if(account != null) {
+
+                    val credential= GoogleAuthProvider.getCredential(account.idToken, null)
+                    FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
+                        if(it.isSuccessful){
+                            val profilePicUrl = account.photoUrl?.toString() ?: ""
+                            showHome(account.email ?: "", account.displayName ?: "", ProviderType.GOOGLE, profilePicUrl)
+                        }else{
+                            showAlert("Error:","No se registró")
+                        }
+                    }
+                }
+
+            }catch (e: ApiException){
+                showAlert("Error:","Se ha producido un error.")
+            }
+
+        }
+
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
 }
