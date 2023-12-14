@@ -16,10 +16,26 @@ data class Books(
     val authorBook: String?,
     val qualification: Float,
     val synopsis: String?,
-    val fechaEstreno: Date?,
+    var fechaEstreno: Date?,
     val readingContent: String?
 ) : Parcelable {
 
+    // Constructor sin argumentos requerido por Firebase
+    constructor() : this(
+        id = 0,
+        title = null,
+        chapter = null,
+        day = null,
+        img = null,
+        tagName = null,
+        nameBook = null,
+        coverBook = null,
+        authorBook = null,
+        qualification = 0f,
+        synopsis = null,
+        fechaEstreno = null,
+        readingContent = null
+    )
 
 
     constructor(parcel: Parcel) : this(

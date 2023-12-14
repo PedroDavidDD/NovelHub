@@ -55,7 +55,5 @@ class BooksAdapter(val context: Context, var bookList: MutableList<Books>) : Rec
         var nameBook: TextView= itemView.findViewById(R.id.tvNombreLibro)
         var nameAuthor: TextView= itemView.findViewById(R.id.tvNombreAutor)
         var qualification: RatingBar= itemView.findViewById(R.id.elpRbCalificacion)
-
-
     }
 }

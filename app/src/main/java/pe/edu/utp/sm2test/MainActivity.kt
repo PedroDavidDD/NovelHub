@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.setViewTreeOnBackPressedDispatcherOwner
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import com.google.firebase.firestore.FirebaseFirestore
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.HomeFragment
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.MyNovelsFragment
 import pe.edu.utp.sm2test.Fragments.BottomNavigation.NewsFragment
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
     private var filterFragment: FilterFragment = FilterFragment()
 
     private lateinit var errorMessageTextView: TextView
+
+    private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -49,8 +52,40 @@ class MainActivity : AppCompatActivity() {
         // Establecer la lista de libros en el fragmento HomeFragment
         homeFragment.setBookList(BookProvider.booksList)
 
+        saveBooksListInFirebase()
+
         // Acciones con los botones
         getBtnListeners()
+
+    }
+
+    private fun saveBooksListInFirebase() {
+        val booksCollection = db.collection("books")
+
+        for (book in BookProvider.booksList) {
+            val data = hashMapOf(
+                "authorBook" to book.authorBook,
+                "chapter" to book.chapter,
+                "coverBook" to book.coverBook,
+                "day" to book.day,
+                "fechaEstreno" to book.fechaEstreno,
+                "img" to book.img,
+                "nameBook" to book.nameBook,
+                "qualification" to book.qualification,
+                "readingContent" to book.readingContent,
+                "synopsis" to book.synopsis,
+                "tagName" to book.tagName,
+                "title" to book.title
+            )
+
+            booksCollection.document(book.title.toString()).set(data)
+                .addOnSuccessListener {
+                    Log.d("Firestore", "Datos de ${book.title} guardados correctamente")
+                }
+                .addOnFailureListener { e ->
+                    Log.w("Firestore", "Error al guardar datos de ${book.title}", e)
+                }
+        }
     }
 
     private fun getBtnListeners() {

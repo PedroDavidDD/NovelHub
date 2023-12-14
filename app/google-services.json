@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "611565246160",
+    "firebase_url": "https://retologinfacebook-default-rtdb.firebaseio.com",
+    "project_id": "retologinfacebook",
+    "storage_bucket": "retologinfacebook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611565246160:android:7c573821bbe0a093c270d5",
+        "android_client_info": {
+          "package_name": "pe.edu.utp.semana08navigationdrawer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611565246160-gfao62acahgr997lpijdj1tsci8858qd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.edu.utp.semana08navigationdrawer",
+            "certificate_hash": "3696998e7b431e08927cf0d4447867e8929cfe92"
+          }
+        },
+        {
+          "client_id": "611565246160-p4u03759dgvhb5v22e3obn4ofgfhkdok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7cySHg3f2SKQ1U8G9gzrGV0cSqf9lOpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611565246160-p4u03759dgvhb5v22e3obn4ofgfhkdok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611565246160:android:85a7388978c2fce9c270d5",
+        "android_client_info": {
+          "package_name": "pe.edu.utp.sm2test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611565246160-p4u03759dgvhb5v22e3obn4ofgfhkdok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7cySHg3f2SKQ1U8G9gzrGV0cSqf9lOpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611565246160-p4u03759dgvhb5v22e3obn4ofgfhkdok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
