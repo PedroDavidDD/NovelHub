@@ -6,28 +6,42 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuthException
 import pe.edu.utp.sm2test.R
 import pe.edu.utp.sm2test.MainActivity
 
 class LoginActivity : AppCompatActivity(){
+
+    private lateinit var btnLogin: Button
+    private lateinit var etCorreo: EditText
+    private lateinit var etContraseña: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        val usuarioEt = findViewById<EditText>(R.id.etUsuario)
-        val passwordEt = findViewById<EditText>(R.id.etPassword)
-        val botonLogin = findViewById<Button>(R.id.buttonLogin)
+        val etCorreo = findViewById<EditText>(R.id.etCorreo)
+        val etContraseña = findViewById<EditText>(R.id.etContraseña)
+        val btnLogin = findViewById<Button>(R.id.buttonLogin)
 
-        botonLogin.setOnClickListener{
-            val user = usuarioEt.text.toString()
-            val pw = passwordEt.text.toString()
 
-            if (user == "" || pw == ""){
-                Toast.makeText(this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
-            }else{
-                val intent = Intent(this, PerfilActivity::class.java)
-                startActivity(intent)
+        btnLogin.setOnClickListener {
+            if (etCorreo.text.isNotEmpty() && etContraseña.text.isNotEmpty()) {
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    etCorreo.text.toString(),  etContraseña.text.toString()).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        showHome(it.result?.user?.email ?: "" ,it.result?.user?.displayName ?: "" , ProviderType.BASIC, "")
+                    } else {
+                        // Mostrar un mensaje descriptivo del error
+                        val errorMsg  = when (val ex = it.exception) {
+                            is FirebaseAuthException -> ex.message
+                            else -> "Se ha producido un error."
+                        }
+                        showAlert(errorMsg ?: "Se ha producido un error.")
 
+                    }
+
+                }
             }
         }
 
