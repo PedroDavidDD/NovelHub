@@ -34,7 +34,6 @@ class ReadBooksFragment : Fragment() {
 
         initialComponents(rootView)
 
-        val queryInt = arguments?.getInt("idBook")
         // Llama a fetchBooksFromFirestore() cuando la vista se haya creado
         fetchBooksFromFirestore()
 
@@ -69,10 +68,13 @@ class ReadBooksFragment : Fragment() {
                 Log.w("Firestore", "Error al obtener libros", e)
             }
     }
+
     // Método para obtener un libro específico por su ID desde la lista global de libros de Firebase
     private fun fetchBookByIdFromFirestore(bookId: Int): Books? {
         return booksListFromFirestore.find { it.id == bookId }
-    }// Método para actualizar la interfaz de usuario con los datos obtenidos
+    }
+
+    // Método para actualizar la interfaz de usuario con los datos obtenidos
     private fun updateUIWithFetchedData(queryText: Int) {
         // Obtener el libro específico por su ID desde Firebase
         val filteredBook = fetchBookByIdFromFirestore(queryText)

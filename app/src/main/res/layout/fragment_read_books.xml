@@ -42,8 +42,9 @@
             <TextView
                 android:id="@+id/tvReadingContent"
                 android:layout_width="349dp"
-                android:layout_height="700dp"
+                android:layout_height="wrap_content"
                 android:gravity="start|top"
+                android:ellipsize="end"
                 android:text="@string/hello_blank_fragment"
                 android:textSize="25dp" />
         </ScrollView>

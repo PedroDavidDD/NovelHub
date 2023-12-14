@@ -65,19 +65,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNombreAutor" />
 
-        <TextView
-            android:id="@+id/tvDescripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="italic"
+        <ScrollView
+            android:id="@+id/svDescripcion"
+            android:layout_width="338dp"
+            android:layout_height="126dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/elpRbCalificacion"
-            tools:text="a" />
+            app:layout_constraintTop_toBottomOf="@+id/elpRbCalificacion">
 
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:gravity="start|top"
+                android:maxLines="5"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/elpRbCalificacion"
+                tools:text="a" />
+        </ScrollView>
         <Button
             android:id="@+id/btnLeer"
             android:layout_width="150dp"
@@ -89,7 +102,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescripcion" />
+            app:layout_constraintTop_toBottomOf="@+id/svDescripcion" />
 
         <ImageView
             android:id="@+id/ivCompartir"
