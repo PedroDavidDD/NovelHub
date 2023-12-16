@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
 
     // registro simple
     private lateinit var provider: String
-    private lateinit var tvEmail: TextView
 
     private lateinit var nvPrincipal: NavigationView
 
@@ -73,9 +72,6 @@ class MainActivity : AppCompatActivity() {
         val name = bundle?.getString("name")
         val imagenPerfil = bundle?.getString("picture")
 
-        if (!email.isNullOrEmpty()) {
-            tvEmail.visibility = View.VISIBLE
-        }
         setup(email ?: "", provider ?: "", imagenPerfil ?:  "", name ?: "")
 
         // Reemplazar fragmento por defecto
@@ -93,7 +89,6 @@ class MainActivity : AppCompatActivity() {
     private fun setup(email: String, provider: String, imagenPerfil: String, name: String){
 
         title = "API Clima - Login [Simple-Facebook]"
-        tvEmail.text = "Bienvenido: ${email}"
 
         /*val navHeader = nvPrincipal.getHeaderView(0)*/
         /*val perfil = navHeader.findViewById<Item>(R.id.action_account)
@@ -270,9 +265,6 @@ class MainActivity : AppCompatActivity() {
         getSettingsToolbar()
         errorMessageTextView = binding.tvErrorMessage
         errorMessageTextView.bringToFront()
-
-        tvEmail = findViewById(R.id.tvEmail)
-
     }
 
 }
